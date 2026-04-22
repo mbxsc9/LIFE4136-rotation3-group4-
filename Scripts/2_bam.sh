@@ -5,26 +5,32 @@
 #SBATCH --ntasks-per-node=10
 #SBATCH --mem=100g
 #SBATCH --time=18:00:00
-#SBATCH --mail-user=mbxsc9@nottingham.ac.uk
-#SBATCH --output=/gpfs01/share/BioinfMSc/life4136_2526/rotation2/group4/Scripts/Logs/slurm-%x-%j.out
-#SBATCH --error=/gpfs01/share/BioinfMSc/life4136_2526/rotation2/group4/Scripts/Logs/slurm-%x-%j.err
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --array=0-114   # Adjust based on number of lines in root_names.txt; first sample is "0"!
 
-# Load software
+# Script to align sequences to canis_lupus_familiaris genome, outputting a bam file
+# Script removes duplicates
+# Load software and modules
 module load samtools-uoneasy/1.18-GCC-12.3.0
 module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
 module load picard-uoneasy/3.0.0-Java-17
 
-##set the file path
-INFILES=/share/BioinfMSc/Hannah_resources/doggies/fastqs
-OUTDIR=/share/BioinfMSc/life4136_2526/rotation3/group4/bam
-SAMPLE_LIST=/share/BioinfMSc/life4136_2526/rotation3/group4
-REF=/share/BioinfMSc/life4136_2526/rotation3/group4/reference_gene/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa
-mkdir -p "$OUTDIR"
+#set the file path
+INFILES=XXX/fastqs
+OUTDIR=XXX/bam
+# Creating the output directory
+mkdir -p $OUTDIR
 
+# Set the pathway to the reference genome.
+REF=XXX/reference_gene/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa
+
+# Need to index genome, once only
+bwa index "$REF"
 # Load sample names into an array
-mapfile -t ROOTS < "$SAMPLE_LIST/names.txt"
+mapfile -t ROOTS < XXX/doggies_names.txt
 
 SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 # Set file paths
