@@ -5,9 +5,9 @@
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=50g
 #SBATCH --time=4:00:00
-#SBATCH --mail-user=xxx@nottingham.ac.uk
-#SBATCH --output=xxx/Logs/slurm-%x-%j.out 
-#SBATCH --error=xxx//Logs/slurm-%x-%j.err
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --output=XXX/slurm-%x-%j.out 
+#SBATCH --error=XXX/Logs/slurm-%x-%j.err
 #SBATCH --array=0-114   # Adjust based on number of lines in doggies_names.txt; first sample is "0"!
 
 # 1 Gb .fq.gz unzips to approximately 4 Gb, fastp needs memory for both R1 and R2
@@ -16,18 +16,18 @@
 module load fastp-uoneasy/0.23.4-GCC-12.3.0
 
 # Load sample names into an array
-mapfile -t ROOTS <xxx/doggies_names.txt
+mapfile -t ROOTS <XXX/doggies_names.txt
 
 # Get the current sample name based on SLURM_ARRAY_TASK_ID
 SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 
 # Define input files 
 # replace XXX with the pathway to the doggies fastq files 
-FILE1=xxx/${SAMPLE}_1.fastq.gz
-FILE2=xxx/${SAMPLE}_2.fastq.gz
+FILE1=XXX/${SAMPLE}_1.fastq.gz
+FILE2=XXX/${SAMPLE}_2.fastq.gz
 
 # Output directory
-OUTDIR=xxx/fastq_trimmed
+OUTDIR=XXX/fastq_trimmed
 # Create output directory. 
 mkdir -p "$OUTDIR"
 
