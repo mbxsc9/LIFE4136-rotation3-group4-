@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH --partition=defq
+#SBATCH --job-name=VCF
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=20
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=8g
+#SBATCH --time=02:00:00
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=fail
+#SBATCH --mail-type=end
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
+
+source $HOME/.bash_profile
+conda activate Rotation3
+
+INPUT:XXX/vcf
+OUTDIR:XXX/GWAS
+
+mkdir -p "$OUTDIR"
+
+bcftools view -m2 -M2 -v snps "$INPUT"/doggies_filtered.vcf.gz -Oz -o "$OUTDIR"/doggies_snps.vcf.gz
+
+bcftools index "$OUTDIR"/doggies_snps.vcf.gz
+
+plink --vcf "$OUTDIR"/doggies_snps.vcf.gz --double-id --allow-extra-chr --make-bed --out doggies_raw
