@@ -6,7 +6,7 @@
 #SBATCH --mem=100g
 #SBATCH --time=2:00:00
 #SBATCH --job-name=multi_qc
-#SBATCH --mail-user=mbxsc9@nottingham.ac.uk
+#SBATCH --mail-user=XXX@nottingham.ac.uk
 #SBATCH --output=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.out
 #SBATCH --error=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
@@ -17,8 +17,9 @@ source $HOME/.bash_profile
 conda activate rotation3
 
 #Defines input and output paths
-INDIR="/share/BioinfMSc/life4136_2526/rotation3/group4/fastq_trimmed"
-OUTDIR="/share/BioinfMSc/life4136_2526/rotation3/group4/Multi_QC/"
+#replace XXX with filepath to the fastq files
+INDIR="XXX/fastq_trimmed"
+OUTDIR="XXX/Multi_QC/"
 
 #Creates/checks output directory
 mkdir -p $OUTDIR
