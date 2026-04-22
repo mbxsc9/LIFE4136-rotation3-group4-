@@ -2,39 +2,52 @@
 #SBATCH --partition=defq
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=20
 #SBATCH --mem=100g
 #SBATCH --time=2:00:00
 #SBATCH --job-name=vcf_calling
-#SBATCH --mail-user=mbxsc9@nottingham.ac.uk
-#SBATCH --output=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.out
-#SBATCH --error=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.err
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
-#SBATCH --array=0-114   # Adjust based on number of lines in root_names.txt; first sample is "0"!
+#SBATCH --array=0-114   # Adjust based on number of lines in doggies_names.txt; first sample is "0"!
 
+# Load software
 module load bcftools-uoneasy/1.18-GCC-13.2.0
 
+# Load chromosomes names into an array
+# Note that for simplicity we are not using chrM (mitochondria), chrY (male sex chr) and chr19 (X chr). 
 mapfile -t ROOTS < /share/BioinfMSc/life4136_2526/rotation3/group4/chr_names.txt
+
+# Get the current sample name based on SLURM_ARRAY_TASK_ID
 SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 
-REF=/share/BioinfMSc/life4136_2526/rotation3/group4/reference_gene/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa
-BAMLIST=/share/BioinfMSc/life4136_2526/rotation3/group4/bam_list.txt
-OUT=/share/BioinfMSc/life4136_2526/rotation3/group4/vcf/dog.MQ20.${SAMPLE}.vcf.gz 
+# Reference genome and regions
+REF=XXX/reference_gene/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa
+BAMLIST=XXX/bam_list.txt
+OUT=XXX/vcf/dog.MQ20.${SAMPLE}.vcf.gz 
 
+#creates and sets output directory 
+mkdir ../vcf/
+
+# Compare Bam files against a reference geneome
+# Computes genotype likelihood and depth information at each genomic position. 
+# Calculates genotype likelihoods from BAM files and turns those likelihoods into variant calls. 
+# Variant calling to produce SNP and indel geneotypes in VCF format
 bcftools mpileup \
-	-Ou \
-	-f $REF \
-	--min-MQ 20 \
-  	--min-BQ 30 \
+	-Ou \ 
+	-f $REF \ #Reference genome Fasta
+	--min-MQ 20 \ #Mapping quality >= 20 removes poor mapped reads
+  	--min-BQ 30 \ #High confidence with base quality >= 30
   	--platforms ILLUMINA \
   	--annotate FORMAT/DP,FORMAT/AD \
   	--bam-list "$BAMLIST" \
   	-r "${SAMPLE}" | \
 bcftools call \
-  --threads 20 \
+  --threads 20 \ # Use 20 CPU threads
   -m \
   -v \
   -a GQ,GP \
   -Oz \
   -o "$OUT"
-bcftools index $OUT
+bcftools index $OUT # index for vcftools and bcftools filter
