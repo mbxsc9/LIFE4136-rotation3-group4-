@@ -30,6 +30,7 @@ OUT=XXX/vcf/dog.MQ20.${SAMPLE}.vcf.gz
 #creates and sets output directory 
 mkdir ../vcf/
 
+# Run bcftools mpileup and variant calling
 # Compare Bam files against a reference geneome
 # Computes genotype likelihood and depth information at each genomic position. 
 # Calculates genotype likelihoods from BAM files and turns those likelihoods into variant calls. 
