@@ -6,27 +6,32 @@
 #SBATCH --mem=100g
 #SBATCH --time=2:00:00
 #SBATCH --job-name=bam_filter
-#SBATCH --mail-user=mbxsc9@nottingham.ac.uk
-#SBATCH --output=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.out
-#SBATCH --error=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.err
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
-#SBATCH --array=0-114   # Adjust based on number of lines in root_names.txt; first sample is "0"!
+#SBATCH --array=0-114   # Adjust based on number of lines in doggies_names.txt; first sample is "0"!
 
 # Load software
 module load samtools-uoneasy/1.18-GCC-12.3.0
 
-mapfile -t ROOTS < /share/BioinfMSc/life4136_2526/rotation3/group4/names.txt
+# Load sample names into an array
+mapfile -t ROOTS < ../doggies_names.txt
 
+# Get the current sample name based on SLURM_ARRAY_TASK_ID
 SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 
-BAM=/share/BioinfMSc/life4136_2526/rotation3/group4/bam/${SAMPLE}_sort.bam
-OUT=/share/BioinfMSc/life4136_2526/rotation3/group2/filtered_BAM
-
+#sets inputs
+# Pathway to the bam files
+BAM=XXX/bam/${SAMPLE}_sort.bam
+OUT=XXX/filtered_BAM
+# Making a new output directory for filtered bam files
 mkdir -p "$OUT"
 
+# Using samtool to filter bam to only keep high-quality and confidently mapped reads.
 samtools view -b -q 30 -F 4 -F 2304 $BAM > $OUT/${SAMPLE}_filtered.bam
 
 #-F 4 (unmapped), -F 256 (secondary mapping), -F 2048 (supplementary mapping)
 #-> sum of secondary and supplementary = 2304 
-#-q 30 = keep reads with quality above 30
+#-q 30 = keep reads with quality above 30 (removes low-confidence alignments)
 #-b = BAM output 
