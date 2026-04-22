@@ -11,12 +11,17 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=mbxsc9@nottingham.ac.uk
 
+# load Conda Environment
 source $HOME/.bash_profile
-conda activate rotation3
+conda activate rotation3 
 
-INPUT=/share/BioinfMSc/life4136_2526/rotation3/group4/doggies_snps_imputed.vcf.gz
-#cd /share/BioinfMSc/life4136_2526/rotation3/group4/plink_data
-OUTDIR=/share/BioinfMSc/life4136_2526/rotation3/group4/plink_data
+# Define input file
+INPUT=XXX/doggies_snps_imputed.vcf.gz
+OUTDIR=XXX/plink_data
+
+# creating a new output directory 
+mkdir -p "$OUTDIR"
+
 
 plink --vcf "$INPUT" --double-id --allow-extra-chr --make-bed --out "$OUTDIR"/doggies_raw
 
