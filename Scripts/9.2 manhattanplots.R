@@ -2,32 +2,33 @@
 library(qqman)
 library(tidyverse)
 
+library(qqman)
+library(tidyverse)
 
-getwd() #finds current working directory
 ## select the directory
-setwd("/Users/smritichaudhary/Documents/R-studio/Rotation3")
-list.files()
-data <- read.table("height_gwas_pca3.assoc.linear", header = TRUE)
-colnames(data) <- c("CHR_ID", "SNP", "BP", "A1", "TEST", "NMISS", "BETA", "STAT", "P")
+setwd("XXX/Rot3/dog")
+data <- read.table("gwas_doggies_height_pca3.assoc.linear", header = TRUE)
 
-acc <- read.table("accession_to_chr.txt", header = FALSE)
-colnames(acc) <- c("CHR_ID", "CHR" )
+# Function to convert chromosome names to numeric values for qqman manhattan plot
+chr_to_int <- function(x, unique_chromosmes) {
+  match(x, unique_chromosmes)} 
+  
+# Order by CHR and assign numeric values to chromosomes
+data <- data %>% arrange(CHR)
+unique_chromosmes <- c(unique(data$CHR))
+data$CHR_NUM <- chr_to_int(data$CHR, unique_chromosmes)
 
-acc$CHR <- sub(",$", "", acc$CHR)
+# Filter for only ADD
+data <- data[data$TEST=="ADD", ]
+  
+# Create Manhattan plot
+png(file="Canis_Manhattan.png", width = 1600, height=1200)
+manhattan(data, chr = "CHR_NUM", bp = "BP", p = "P", main = "Genome-wide Association Analysis of Height in Canis lupus familiaris", ylim = c(0,15), col=c("#3f97b4", "#6a6a6a"))
+dev.off()
 
-merged_data <- merge(data, acc, by = "CHR_ID", all.x = TRUE, sort = FALSE)
-
-merged_data <- merged_data[complete.cases(merged_data$CHR),] ## removing na
-merged_data <- merged_data[complete.cases(merged_data$P),] ## removing na
-
-
-merged_data$CHR <- as.numeric(merged_data$CHR) ## making it numeric
-merged_data <- merged_data[!is.na(merged_data$CHR),]
-any(is.na(merged_data$CHR))
-
-merged_data$BP <- as.numeric(merged_data$BP) ## making it numeric
-merged_data <- merged_data[!is.na(merged_data$BP),]
-any(is.na(merged_data$BP))
+# View Highest P value points
+canis_dataset_top_P_value <- data %>% arrange(P)
+head(canis_dataset_top_P_value, 25)
 
 
 manhattan(merged_data, chr = "CHR", ps = "BP", p = "P")
