@@ -181,3 +181,15 @@ install plink 2 if it does n't won
 conda install bioconda::plink2
 ```
 
+# Troubleshooting
+If the pipeline fails, check the following:
+- plink.log for general errors.
+- Common issues:
+- - Input file format errors (VCF/PLINK) --> validate input files
+  - Missing reference FASTA file --> download using the provided website link.
+  - Insufficient resources (memory/CPU) --> adjust resource parameters in the profile configs.
+ 
+If pipleine ran succssessfully but results look off:
+- Check the number of jobs in each process
+- Define input file pathway correctly.
+- Check sample QC in ../Multiqc/ to ensure expected samples counts after QC.
