@@ -4,15 +4,12 @@ Project Overiew
 [Tool installation](#tool-installation)
 
 
-# Files and data reuired:
+# Files and data required:
 - Short Reads: Illumia Data
-  Paired end data
-  *_1.fastq.gz
-  *_2.fastq.gz
-
-115 *_1.fastq.gz
-115 *_2.fastq.gz
-
+- Paired end data
+- *_1.fastq.gz
+- *_2.fastq.gz
+- Total 115 different unknown dog breeds
 
 
 
