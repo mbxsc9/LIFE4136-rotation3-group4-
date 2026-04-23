@@ -11,6 +11,10 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=XXX@nottingham.ac.uk
 
+# load Conda Environment
+source $HOME/.bash_profile
+conda activate rotation3
+
 #Loads required modules
 module load bcftools-uoneasy/1.18-GCC-13.2.0
 module load vcftools-uoneasy/0.1.16-GCC-12.3.0
@@ -60,3 +64,5 @@ bcftools index $VCFB
 
 #Counts the number of SNPs in the output
 bcftools view -H $VCFB | wc -l > $VCFB.SNPS.txt
+
+conda deactivate
