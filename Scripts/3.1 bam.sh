@@ -11,6 +11,10 @@
 #SBATCH --mail-type=ALL
 #SBATCH --array=0-114   # Adjust based on number of lines in root_names.txt; first sample is "0"!
 
+# load Conda Environment
+source $HOME/.bash_profile
+conda activate rotation3 
+
 # Script to align sequences to canis_lupus_familiaris genome, outputting a bam file
 # Script removes duplicates
 # Load software and modules
