@@ -19,6 +19,7 @@ conda activate rotation3
 module load plink-uoneasy/2.00a3.7-foss-2023a
 
 # Define input
+# INPUT1=XXX/plink_data/plink_QC_Genotype
 INPUT=XXX/plink_data
 TXT=XXX/plink_data/gwas_plink
 OUTPUT=XXX/plink_data/LD_pruning
@@ -26,8 +27,11 @@ OUTPUT=XXX/plink_data/LD_pruning
 # Run GWAS using plink's linear model.
 # LD pruning to remove SNPs that are highly correlated with each other. left with independent markers suitable for population structure analysis.
 # PCA on pruned SNPs. calculate 20 PCs. 
+# Use "$INPUT1"/doggies_qc for better analysis
 plink --bfile "$INPUT"/doggies_raw \
  --allow-extra-chr --allow-no-sex --pheno "$TXT"/pheno_doggies_height.txt \
  --covar "$OUTPUT"/pca20.eigenvec \
  --covar-number 1-3 \
  --linear --out "$OUTPUT"/gwas_doggies_height_pca3
+
+conda deactivate
