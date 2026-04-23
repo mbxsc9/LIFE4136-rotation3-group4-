@@ -16,9 +16,16 @@ The phenofile is the required input for the GWAS pipeline.
 This is a space- or tab-separated text file that contain the sample information. The file must have a header as this will be used as this will be used to specifiy the coluns to use in your command. 
 
 ```
-begin
+begin using the .csv chose the sample_accession. 
+```  
+The pheno_doggies_height.txt created from the mearged.csv file. This reads sample_accession in first and second columns and three columns has the phenotype information of mean height which ranges from 35.56 to 76.2. 
 ```
-
+| SAMN03801644 | SAMN03801644	| 35.56 |
+| SAMEA2376414 | SAMEA2376414 |	35.56 |
+```
+# degging
+look the doggies.fam and see the format. 
+if the .fam has breed or run_accession and their id. It need to replace so, plink can read the data. 
 
 
 # Files and data required:
