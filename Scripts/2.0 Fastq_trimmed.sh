@@ -10,6 +10,10 @@
 #SBATCH --error=XXX/Logs/slurm-%x-%j.err
 #SBATCH --array=0-114   # Adjust based on number of lines in doggies_names.txt; first sample is "0"!
 
+# load Conda Environment
+source $HOME/.bash_profile
+conda activate rotation3 
+
 # 1 Gb .fq.gz unzips to approximately 4 Gb, fastp needs memory for both R1 and R2
 # 1 pair ran in ~3 minutes using these settings, certainly possible to speed it up
 # Load fastp
