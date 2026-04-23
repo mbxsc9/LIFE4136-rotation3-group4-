@@ -1,0 +1,91 @@
+breed,sample_accession,individual_id,run_accession,scientific_name,popularity,min_height,max_height,Mean_height
+Beagle,SAMN03801644,Beagle 2,SRR2094385,Canis lupus familiaris,6,33.02,38.1,35.56
+Beagle,SAMEA2376414,Beagle 4,SRR7107564,Canis lupus familiaris,6,33.02,38.1,35.56
+Beagle,SAMN06159681,Beagle 1,SRR7107976,Canis lupus familiaris,6,33.02,38.1,35.56
+Bearded_Collie,SAMEA4505496,Bearded Collie 6,SRR7107613,Canis lupus familiaris,127,50.8,55.88,53.34
+Bearded_Collie,SAMEA4505492,Bearded Collie 2,SRR7107609,Canis lupus familiaris,127,50.8,55.88,53.34
+Bearded_Collie,SAMEA4504832,Bearded Collie 7,SRR7107601,Canis lupus familiaris,127,50.8,55.88,53.34
+Bearded_Collie,SAMEA4504827,Bearded Collie 5,SRR7107596,Canis lupus familiaris,127,50.8,55.88,53.34
+Bearded_Collie,SAMEA3928140,Bearded Collie 1,SRR7107581,Canis lupus familiaris,127,50.8,55.88,53.34
+Belgian_Malinois,SAMEA104125121,Belgian Malinois 5,SRR7107561,Canis lupus familiaris,43,55.88,66.04,60.96
+Belgian_Malinois,SAMEA4504823,Belgian Malinois 2,SRR7107592,Canis lupus familiaris,43,55.88,66.04,60.96
+Belgian_Malinois,SAMEA4504826,Belgian Malinois 3,SRR7107595,Canis lupus familiaris,43,55.88,66.04,60.96
+Belgian_Malinois,SAMEA104032048,Belgian Malinois 4,SRR7107526,Canis lupus familiaris,43,55.88,66.04,60.96
+Belgian_Sheepdog,SAMN08872843,Belgian Sheepdog 2,SRR7120110,Canis lupus familiaris,125,55.88,66.04,60.96
+Belgian_Sheepdog,SAMN03801646,Belgian Sheepdog 1,SRR2095368,Canis lupus familiaris,125,55.88,66.04,60.96
+Belgian_Sheepdog,SAMN08872844,Belgian Sheepdog 3,SRR7120111,Canis lupus familiaris,125,55.88,66.04,60.96
+Belgian_Sheepdog,SAMN08872847,Belgian Sheepdog 6,SRR7120114,Canis lupus familiaris,125,55.88,66.04,60.96
+Belgian_Sheepdog,SAMN08872845,Belgian Sheepdog 4,SRR7120112,Canis lupus familiaris,125,55.88,66.04,60.96
+Belgian_Tervuren,SAMN08872853,Belgian Tervuren 5,SRR7120120,Canis lupus familiaris,106,55.88,66.04,60.96
+Belgian_Tervuren,SAMN08872849,Belgian Tervuren 1,SRR7120116,Canis lupus familiaris,106,55.88,66.04,60.96
+Belgian_Tervuren,SAMN08872852,Belgian Tervuren 4,SRR7120119,Canis lupus familiaris,106,55.88,66.04,60.96
+Belgian_Tervuren,SAMN08872855,Belgian Tervuren 7,SRR7120122,Canis lupus familiaris,106,55.88,66.04,60.96
+Belgian_Tervuren,SAMN08872856,Belgian Tervuren 8,SRR7120123,Canis lupus familiaris,106,55.88,66.04,60.96
+Bernese_Mountain_Dog,SAMN08872868,Bernese Mountain Dog 4,SRR7120129,Canis lupus familiaris,22,58.42,69.85,64.135
+Bernese_Mountain_Dog,SAMN08872878,Bernese Mountain Dog 14,SRR7120139,Canis lupus familiaris,22,58.42,69.85,64.135
+Bernese_Mountain_Dog,SAMN08872866,Bernese Mountain Dog 2,SRR7120127,Canis lupus familiaris,22,58.42,69.85,64.135
+Bernese_Mountain_Dog,SAMN08872875,Bernese Mountain Dog 11,SRR7120136,Canis lupus familiaris,22,58.42,69.85,64.135
+Bernese_Mountain_Dog,SAMN08872882,Bernese Mountain Dog 18,SRR7120143,Canis lupus familiaris,22,58.42,69.85,64.135
+Border_Collie,SAMN04908307,Border Collie 5,SRR3466763,Canis lupus familiaris,35,45.72,55.88,50.8
+Border_Collie,SAMN03801650,Border Collie 12,SRR2094387,Canis lupus familiaris,35,45.72,55.88,50.8
+Border_Collie,SAMEA4504821,Border Collie 14,SRR7107590,Canis lupus familiaris,35,45.72,55.88,50.8
+Border_Collie,SAMEA104125115,Border Collie 10,SRR7107555,Canis lupus familiaris,35,45.72,55.88,50.8
+Border_Collie,SAMN04908311,Border Collie 4,SRR3466767,Canis lupus familiaris,35,45.72,55.88,50.8
+Bull_Terrier,SAMN08872913,Bull Terrier 2,SRR7120148,Canis lupus familiaris,62,53.34,55.88,54.61
+Bull_Terrier,SAMN08872915,Bull Terrier 4,SRR7120150,Canis lupus familiaris,62,53.34,55.88,54.61
+Bull_Terrier,SAMN08872916,Bull Terrier 5,SRR7120151,Canis lupus familiaris,62,53.34,55.88,54.61
+Bull_Terrier,SAMN08872917,Bull Terrier 6,SRR7120152,Canis lupus familiaris,62,53.34,55.88,54.61
+Bull_Terrier,SAMN08872918,Bull Terrier 7,SRR7120153,Canis lupus familiaris,62,53.34,55.88,54.61
+Dachshund,SAMN06159670,Dachshund 1,SRR7107965,Canis lupus familiaris,12,12.7,22.86,17.78
+Dachshund,SAMEA104125117,Dachshund 5,SRR7107557,Canis lupus familiaris,12,12.7,22.86,17.78
+Dachshund,SAMN06159676,Dachshund 2,SRR7107971,Canis lupus familiaris,12,12.7,22.86,17.78
+Dachshund,SAMEA104091567,Dachshund 4,SRR7107544,Canis lupus familiaris,12,12.7,22.86,17.78
+Dachshund,SAMEA3121338,Dachshund 3,SRR7107571,Canis lupus familiaris,12,12.7,22.86,17.78
+English_Cocker_Spaniel,SAMN03323673,English Cocker Spaniel 4,SRR1784124,Canis lupus familiaris,52,38.1,43.18,40.64
+English_Cocker_Spaniel,SAMN02921306,English Cocker Spaniel 5,SRR7107774,Canis lupus familiaris,52,38.1,43.18,40.64
+English_Cocker_Spaniel,SAMEA4506900,English Cocker Spaniel 1,SRR7107632,Canis lupus familiaris,52,38.1,43.18,40.64
+English_Cocker_Spaniel,SAMEA1521941,English Cocker Spaniel 2,SRR7107563,Canis lupus familiaris,52,38.1,43.18,40.64
+German_Shepherd_Dog,SAMN02585203,German Shepherd Dog 7,SRR1124304,Canis lupus familiaris,2,55.88,66.04,60.96
+German_Shepherd_Dog,SAMEA72802168,German Shepherd Dog 2,SRR7107640,Canis lupus familiaris,2,55.88,66.04,60.96
+German_Shepherd_Dog,SAMN02585202,German Shepherd Dog 6,SRR1124049,Canis lupus familiaris,2,55.88,66.04,60.96
+German_Shepherd_Dog,SAMN03580392,German Shepherd Dog 15,SRR7107884,Canis lupus familiaris,2,55.88,66.04,60.96
+German_Shepherd_Dog,SAMN02585201,German Shepherd Dog 5,SRR1122359,Canis lupus familiaris,2,55.88,66.04,60.96
+Golden_Retriever,SAMN03067891,Golden Retriever 8,SRR7107796,Canis lupus familiaris,3,54.61,60.96,57.785
+Golden_Retriever,SAMN08873034,Golden Retriever 2,SRR7120161,Canis lupus familiaris,3,54.61,60.96,57.785
+Golden_Retriever,SAMN08873035,Golden Retriever 3,SRR7120162,Canis lupus familiaris,3,54.61,60.96,57.785
+Golden_Retriever,SAMN08873036,Golden Retriever 4,SRR7120163,Canis lupus familiaris,3,54.61,60.96,57.785
+Golden_Retriever,SAMN03580402,Golden Retriever 18,SRR7107894,Canis lupus familiaris,3,54.61,60.96,57.785
+Great_Dane,SAMN03801669,Great Dane 4,SRR2095497,Canis lupus familiaris,16,71.12,81.28,76.2
+Great_Dane,SAMEA104091557,Great Dane 1,SRR7107534,Canis lupus familiaris,16,71.12,81.28,76.2
+Great_Dane,SAMN06159672,Great Dane 2,SRR7107967,Canis lupus familiaris,16,71.12,81.28,76.2
+Great_Dane,SAMN06159683,Great Dane 3,SRR7107978,Canis lupus familiaris,16,71.12,81.28,76.2
+Greyhound,SAMN03067882,Greyhound 4,SRR7107794,Canis lupus familiaris,145,68.58,76.2,72.39
+Greyhound,SAMN03068229,Greyhound 5,SRR7107800,Canis lupus familiaris,145,68.58,76.2,72.39
+Greyhound,SAMN03067874,Greyhound 6,SRR7107791,Canis lupus familiaris,145,68.58,76.2,72.39
+Greyhound,SAMN03067873,Greyhound 3,SRR7107790,Canis lupus familiaris,145,68.58,76.2,72.39
+Greyhound,SAMN03067872,Greyhound 2,SRR7107789,Canis lupus familiaris,145,68.58,76.2,72.39
+Labrador_Retriever,SAMEA2417016,Labrador Retriever 13,SRR7107566,Canis lupus familiaris,1,54.61,62.23,58.42
+Labrador_Retriever,SAMN08873145,Labrador Retriever 7,SRR7120178,Canis lupus familiaris,1,54.61,62.23,58.42
+Labrador_Retriever,SAMN08873139,Labrador Retriever 1,SRR7120173,Canis lupus familiaris,1,54.61,62.23,58.42
+Labrador_Retriever,SAMN08873142,Labrador Retriever 4,SRR7120175,Canis lupus familiaris,1,54.61,62.23,58.42
+Labrador_Retriever,SAMN03580399,Labrador Retriever 18,SRR7107891,Canis lupus familiaris,1,54.61,62.23,58.42
+Portuguese_Water_Dog,SAMN08873219,Portuguese Water Dog 1,SRR7120193,Canis lupus familiaris,50,43.18,58.42,50.8
+Portuguese_Water_Dog,SAMN08873227,Portuguese Water Dog 9,SRR7120201,Canis lupus familiaris,50,43.18,58.42,50.8
+Portuguese_Water_Dog,SAMN08873228,Portuguese Water Dog 10,SRR7120202,Canis lupus familiaris,50,43.18,58.42,50.8
+Portuguese_Water_Dog,SAMN08873221,Portuguese Water Dog 3,SRR7120195,Canis lupus familiaris,50,43.18,58.42,50.8
+Portuguese_Water_Dog,SAMN08873222,Portuguese Water Dog 4,SRR7120196,Canis lupus familiaris,50,43.18,58.42,50.8
+Rottweiler,SAMN08873245,Rottweiler 3,SRR7120206,Canis lupus familiaris,8,55.88,68.58,62.23
+Rottweiler,SAMN03801684,Rottweiler 6,SRR2095501,Canis lupus familiaris,8,55.88,68.58,62.23
+Rottweiler,SAMN08873251,Rottweiler 9,SRR7120209,Canis lupus familiaris,8,55.88,68.58,62.23
+Rottweiler,SAMN08873246,Rottweiler 4,SRR7120207,Canis lupus familiaris,8,55.88,68.58,62.23
+Rottweiler,SAMN08873247,Rottweiler 5,SRR7120208,Canis lupus familiaris,8,55.88,68.58,62.23
+West_Highland_White_Terrier,SAMN08873428,West Highland White Terrier 7,SRR7120233,Canis lupus familiaris,42,25.4,27.94,26.67
+West_Highland_White_Terrier,SAMEA104091561,West Highland White Terrier 11,SRR7107538,Canis lupus familiaris,42,25.4,27.94,26.67
+West_Highland_White_Terrier,SAMEA4509489,West Highland White Terrier 10,SRR7107636,Canis lupus familiaris,42,25.4,27.94,26.67
+West_Highland_White_Terrier,SAMN08873429,West Highland White Terrier 8,SRR7120234,Canis lupus familiaris,42,25.4,27.94,26.67
+West_Highland_White_Terrier,SAMN03580397,West Highland White Terrier 5,SRR7107889,Canis lupus familiaris,42,25.4,27.94,26.67
+Yorkshire_Terrier,SAMN08873460,Yorkshire Terrier 14,SRR7120248,Canis lupus familiaris,10,17.78,20.32,19.05
+Yorkshire_Terrier,SAMN08873465,Yorkshire Terrier 19,SRR7120253,Canis lupus familiaris,10,17.78,20.32,19.05
+Yorkshire_Terrier,SAMN08873466,Yorkshire Terrier 20,SRR7120254,Canis lupus familiaris,10,17.78,20.32,19.05
+Yorkshire_Terrier,SAMN08873505,Yorkshire Terrier 59,SRR7120293,Canis lupus familiaris,10,17.78,20.32,19.05
+Yorkshire_Terrier,SAMN08873506,Yorkshire Terrier 60,SRR7120294,Canis lupus familiaris,10,17.78,20.32,19.05
