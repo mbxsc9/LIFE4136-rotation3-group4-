@@ -222,15 +222,19 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - Output: ```${SAMPLE}.sort.bam```, ```.rmd.bam.bai```, ```.rmd.bam.metrics``` and ```.rmd.bam```
 - Bam_filter: Input: ```${SAMPLE}.sort.bam``` | Output: ```${SAMPLE}.filtered.bam``` 
 
-6. 
-Script:
+6. VCF mpileup and calling
+Script: ```4.0 VCF_mpileup_calling```, ```4.1 Variant_concat.sh```
+Objective: To identify SNPs, indels and variant calls files using bcftools. Also, concat all the vcf into one file.
+Input: ```${SAMPLE}.filtered.bam```
+Output: ```${SAMPLE}.vcf.gz ```
+
+7. VCF filter and Imputation
+Script: ```4.1
 Objective:
 Input:
 Output:
-Script:
-Objective:
-Input:
-Output:
+
+
 Script:
 Objective:
 Input:
