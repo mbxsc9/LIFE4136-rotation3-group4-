@@ -23,7 +23,9 @@ mkdir -p "$OUTDIR"
 
 # Adapt phenotype file.
 # Converting .csv file into .txt as plink cannot read .csv file.
-# .txt file with family ID and indivual ID. Matching with the .bam file
-awk -F',' BEGIN { OFS ="\t" } 'NR>1 {print $1, $4, $9}' "$INPUT"/mergeddata.csv > "$OUTDIR"/doggies_height.txt
+# .txt file with sample_accession and sample_accession. Matching with the .fam file
+awk -F',' BEGIN { OFS ="\t" } 'NR>1 {print $2, $2, $9}' "$INPUT"/mergeddata.csv > "$OUTDIR"/doggies_height.txt
 
-# awk -F',' 'NR>1 {print $1, %1, $10}' armour_data.csv > doggies_height.txt
+# awk -F',' 'NR>1 {print $1, $1, $10}' armour_data.csv > doggies_height.txt
+
+conda deactivate
