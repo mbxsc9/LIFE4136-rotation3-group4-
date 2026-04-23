@@ -21,3 +21,5 @@ OUTDIR=XXX/plink_data/plink_QC_Genotype
 
 # QC filter to remove low quality SNPs and indiviuals before analysis.
 plink --bfile "$INPUT"/doggies_raw --allow-extra-chr --geno 0.3 --mind 0.6 --maf 0.05 --make-bed --out "$OUTDIR"/doggies_qc
+
+conda deactivate
