@@ -19,6 +19,9 @@ This is a space- or tab-separated text file that contain the sample information.
 begin using the .csv chose the sample_accession. 
 ```  
 The pheno_doggies_height.txt created from the mearged.csv file. This reads sample_accession in first and second columns and three columns has the phenotype information of mean height which ranges from 35.56 to 76.2. 
+- Sample ID column: The pipeline will read the sample ID from the column specified with option --sampleIDcol. If you're running the pipeline on Genomics England data, the sample ID should be the platekey ID because this is what is specified in the aggregate genomic data. For other data, you can use whatever ID is appropriate for that data
+- Sex specification column: The pipeline will read the sex info from the column specified with option --sexCol. Males must be specified as 0 and females as 1.
+- Phenotype specification column: The pipeline will read the phenotype from the column specified with option --phenoCol (see below)
 ```
 | SAMN03801644 | SAMN03801644	| 35.56 |
 | SAMEA2376414 | SAMEA2376414 |	35.56 |
@@ -27,6 +30,20 @@ The pheno_doggies_height.txt created from the mearged.csv file. This reads sampl
 look the doggies.fam and see the format. 
 if the .fam has breed or run_accession and their id. It need to replace so, plink can read the data. 
 
+# Create a lsit of genomic files to run the GWAS on
+The pipeline requires a list of genomic files, thses can be VCF.
+List requirement:
+- The list must containt comma-spearated file location.
+- The file must exit and not be empty.
+- Specify chromosome
+
+# Plink 
+This option will designate the plink files identify high qaulity independent SNPs. To simplify the process the flag will set a prefix for the files and expand these to cover the suffixes needed. 
+This fileset will be used to construct the GRM and fit the nul model when running the mixed model association analysis.
+
+The suffix pattern will be:
+.{bed,bim,fam}
+This corresponds to the triplet of files that are used by plink.
 
 # Files and data required:
 - Short Reads: Illumia Data
@@ -133,6 +150,14 @@ Further analysis tools
 
 Reference 
 you can download the reference file [here](https://www.ensembl.org/Canis_lupus_familiaris/Info/Index). 
+
+
+View the Output
+As output, the pipeline produces GWAS summary statistics, manhattan and qqplot figures.
+
+
+
+
 
 
 
