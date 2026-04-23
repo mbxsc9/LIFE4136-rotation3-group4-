@@ -13,16 +13,26 @@
 #SBATCH --output=XXX/slurm-%x-%j.out
 #SBATCH --error=XXX/slurm-%x-%j.err
 
+# load conda environment
 source $HOME/.bash_profile
 conda activate Rotation3
 
+# Define files pathway
 INPUT:XXX/vcf
 OUTDIR:XXX/GWAS
 
+# Create a new output directory
 mkdir -p "$OUTDIR"
 
-bcftools view -m2 -M2 -v snps "$INPUT"/doggies_filtered.vcf.gz -Oz -o "$OUTDIR"/doggies_snps.vcf.gz
+# Using bcftools to retain biallelic SNPs for this analysis. 
+# Only keeps SNPs variant
+bcftools view -m2 -M2 -v snps "$INPUT"/doggies_snps_imputed.vcf.gz -Oz -o "$OUTDIR"/doggies_snps.vcf.gz
 
+# Index the vcf to directly jump to a genomic positions.
 bcftools index "$OUTDIR"/doggies_snps.vcf.gz
 
+# Convert VCF files into a binary format - allows plink to work.
+# plink stores data in 3 coordinated files, a .bed, .bim, and .fam
 plink --vcf "$OUTDIR"/doggies_snps.vcf.gz --double-id --allow-extra-chr --make-bed --out doggies_raw
+
+conda deactivate
