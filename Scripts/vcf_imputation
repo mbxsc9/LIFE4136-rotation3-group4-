@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --partition=defq
+#SBATCH --job-name=impute
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32g
+#SBATCH --time=24:00:00
+#SBATCH --output=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/Logs/%x-%j.out
+#SBATCH --error=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/Logs/%x-%j.err
+
+source $HOME/.bash_profile
+conda activate Rotation3
+
+VCF=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/CLF.filtered.vcf.gz
+
+BEAGLE=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/beagle.28Jun21.220.jar
+
+OUTDIR=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/impute
+
+mkdir -p $OUTDIR
+mkdir -p /share/BioinfMSc/life4136_2526/rotation3/group3/VCF/Logs
+
+java -Xmx30g -jar $BEAGLE \
+gt=$VCF \
+out=$OUTDIR/CLF_imputed
