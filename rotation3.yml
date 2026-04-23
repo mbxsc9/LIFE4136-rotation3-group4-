@@ -1,0 +1,8 @@
+name: rotation3.yml
+channels: 
+   - conda-forge
+   - defult
+   - 
+dependencies: 
+   - multiqc
+   
