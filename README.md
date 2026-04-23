@@ -241,7 +241,7 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - Index Input: ```doggies_snps.vcf.gz``` | Index Output: ```doggies_snps.vcf.gz.csi```.
 
 9. Creating a ```.txt``` file.
-Script: ```5.1 phenotype_select.sh```
+Script: ```5.1 phenotype_select.sh``` 
 Objective: Plink cannot read
 Input:
 Output:
