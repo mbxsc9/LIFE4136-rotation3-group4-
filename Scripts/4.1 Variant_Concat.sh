@@ -21,3 +21,5 @@ module load bcftools-uoneasy/1.18-GCC-13.2.0
 # Concatenate all vcf files into a single vcf file
 bcftools concat --file-list ../vcf.list.txt -Oz --output ../vcf/dog.vcf.gz --threads 32
 bcftools index ../vcf/dog.vcf.gz --threads 32 # Index the merged VCF file
+
+conda deactivate
