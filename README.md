@@ -6,6 +6,12 @@ Project Overiew
 # The GWAS pipeline
 This pipeline will allow to run Genome Wide Association analyses on Genomics Data. Binary phenotypes, you can run this workflow to identify variants that are enriched for the phenotype. 
 
+
+A tool for conducting Genome-Wide Association Study (GWAS).
+We deeloped an automated GWAS pipeline by combining multiple analysis tools - including bcftools, vcftools, fastp, multiqc and the R packages using PLINK. 
+The pipline is flexible and have a reproducible workflow. 
+The GWAS pipeline intergrates the stpes of steps of data quality control and assessment and genetic association analyses, including analysis of cross-sectional and longitudinal studies with either single variants or gene-based testes, into a unified analysis workflow. 
+
 # Introduction
 To identify SNPs or traits, this pipeline works with plink.
 
@@ -185,7 +191,7 @@ conda install bioconda::plink2
 If the pipeline fails, check the following:
 - plink.log for general errors.
 - Common issues:
-- - Input file format errors (VCF/PLINK) --> validate input files
+  - Input file format errors (VCF/PLINK) --> validate input files
   - Missing reference FASTA file --> download using the provided website link.
   - Insufficient resources (memory/CPU) --> adjust resource parameters in the profile configs.
  
@@ -193,3 +199,5 @@ If pipleine ran succssessfully but results look off:
 - Check the number of jobs in each process
 - Define input file pathway correctly.
 - Check sample QC in ../Multiqc/ to ensure expected samples counts after QC.
+
+Difficult to keep track of all the analysis steps and parameters, including data cleaning, filtering, and calculation of the genoem-wide principla components, limiting reproducibility of the analyses. To address these problems, we have developed a GWAS pipeline tha provides a comprehensive computing environment to manages genome-wide genotype data, to conduct analyses of continuous and bnary traits using mixed effect models, and to summarise. annotate, and visualise the results. 
