@@ -209,17 +209,20 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - Input:```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
 - Output: ```.log```, ```.txt``` of heatmap, content_plot and other.                       ```multiqc_report.html```.
 
-4. 
-Script:
-Objective:
-Input:
-Output:
+4. Indexing the reference genome using BWA
+- Script: ```3.0 Index_reference_gene```
+- Objective: BWA aligns millions of short sequencing reads to a large FASTA format         reference sequence. This allows downstream analysis. 
+- Input: ```Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa```
+- Output: ```.amb```, ```.ann```, ```.bwt```, ```.pac```, and ```.sa```.
 
-Script:
-Objective:
-Input:
-Output:
+5. Creating bam files using the trimmed.fastq and indexed reference files
+- Script: ```3.1 bam.sh```, ```3.2 bam_filter```.
+- Objective: Samtools converts raw sequencing reads (FASTQ) into a reference-aligned,      sorted files for further analysis. Also, used samtools to remove unmmapped and           low-confidence alignments. 
+- Input: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
+- Output: ```${SAMPLE}.sort.bam```, ```.rmd.bam.bai```, ```.rmd.bam.metrics``` and ```.rmd.bam```
+- Bam_filter: Input: ```${SAMPLE}.sort.bam``` | Output: ```${SAMPLE}.filtered.bam``` 
 
+6. 
 Script:
 Objective:
 Input:
