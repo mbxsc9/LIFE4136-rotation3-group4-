@@ -22,9 +22,12 @@ OUTDIR=XXX/plink_data
 # creating a new output directory 
 mkdir -p "$OUTDIR"
 
-
+# Run Plink
+# Convert VCF files into a binary format - allows plink to work.
+# plink stores data in 3 coordinated files, a .bed, .bim, and .fam 
 plink --vcf "$INPUT" --double-id --allow-extra-chr --make-bed --out "$OUTDIR"/doggies_raw
 
+# QC filter to remove low quality SNPs and individuals before analysis.
 plink --bfile "$OUTDIR"/doggies_raw --missing --allow-extra-chr --out "$OUTDIR"/doggies_missing
 
 conda deactivate
