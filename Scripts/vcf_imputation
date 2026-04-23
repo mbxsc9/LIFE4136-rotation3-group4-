@@ -1,24 +1,31 @@
 #!/bin/bash
 #SBATCH --partition=defq
-#SBATCH --job-name=impute
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=32g
-#SBATCH --time=24:00:00
-#SBATCH --output=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/Logs/%x-%j.out
-#SBATCH --error=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/Logs/%x-%j.err
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10g
+#SBATCH --time=2:00:00
+#SBATCH --job-name=imputation
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
+#SBATCH --mail-type=ALL
 
+# Activate the conda environment
 source $HOME/.bash_profile
 conda activate Rotation3
 
-VCF=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/CLF.filtered.vcf.gz
+Define Input
+Filtered_vcf=XXX/doggies_filtered.vcf.gz
+beagle.jar=XXX/beagle.29Oct24.c8e.jar
+OUTDIR=XXX/vcf_filtered/vcf_imputation
 
-BEAGLE=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/beagle.28Jun21.220.jar
+# Create new out directory
+mkdir -p "$OUTDIR"
 
-OUTDIR=/share/BioinfMSc/life4136_2526/rotation3/group3/VCF/impute
+# Running Beagle
+java -Xmx30g -jar "$beagle.jar" \
+gt="$Filtered_vcf" \
+out="$OUTDIR"/doggies_snps_imputed.vcf.gz
 
-mkdir -p $OUTDIR
-mkdir -p /share/BioinfMSc/life4136_2526/rotation3/group3/VCF/Logs
-
-java -Xmx30g -jar $BEAGLE \
-gt=$VCF \
-out=$OUTDIR/CLF_imputed
+conda deactivate
