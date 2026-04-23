@@ -165,6 +165,9 @@ As output, the pipeline produces GWAS summary statistics, manhattan and qqplot f
 
 
 
+vcf_imputation
+using beagle 
+download [here](https://faculty.washington.edu/browning/beagle/b5_4.html#download)
 
 
 
