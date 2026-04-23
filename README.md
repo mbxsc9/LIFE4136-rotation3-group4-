@@ -234,13 +234,15 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - VCF Filter | Input: ```dog.vcf.gz``` | Output: ```doggies_filtered.vcf.gz```
 - VCF Imputation | Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar```   | Output: ```doggies_snps_imputed.vcf.gz```
 
-8. 
-Script:
-Objective:
-Input:
-Output:
-Script:
-Objective:
+8. Clean and index the imputed vcf 
+- Script: ```5.0 Clean_index_vcf```
+- Objective: Using bcftools to only get biallelic SNPs and only keeps SNPs variant.
+- Input: ```doggies_snps_imputed.vcf.gz``` | Output:```doggies_snps.vcf.gz```
+- Index Input: ```doggies_snps.vcf.gz``` | Index Output: ```doggies_snps.vcf.gz.csi```.
+
+9. Creating a ```.txt``` file.
+Script: ```5.1 phenotype_select.sh```
+Objective: Plink cannot read
 Input:
 Output:
 Script:
