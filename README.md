@@ -3,6 +3,23 @@ LIFE4136 Rotation 3 Group 4
 Project Overiew
 [Tool installation](#tool-installation)
 
+# The GWAS pipeline
+This pipeline will allow to run Genome Wide Association analyses on Genomics Data. Binary phenotypes, you can run this workflow to identify variants that are enriched for the phenotype. 
+
+# Introduction
+To identify SNPs or traits, this pipeline works with plink.
+
+Given the phenotype file and some additional arguments as input, the pipeline performs several steps of appropriate sire Quality control (QC) on high-coverage whole genome data and then runs mixed model association analyss. 
+
+Create a phenofiles.txt from the .csv files
+The phenofile is the required input for the GWAS pipeline.
+This is a space- or tab-separated text file that contain the sample information. The file must have a header as this will be used as this will be used to specifiy the coluns to use in your command. 
+
+```
+begin
+```
+
+
 
 # Files and data required:
 - Short Reads: Illumia Data
@@ -18,6 +35,7 @@ Project Overiew
 Introdution 
 A Genome-wide associationstudy (GWAS) is conducted to identify the geneomic regions and nearby candidate genes influencing these traits. 
 
+Genome-wide association studies (GWAS) are observation studies that analysis the entire genome of large population to identify genetic variants, typically single nucleotide polymorphism (SNPs), assocuated with specific traits or disease. By comparing DNA from individuals with a disease (cases) to those without controls (Refernce genome), GWAS identify genetic risk factors, providing insights into disease biology and informing precision medicine.
 Plink 
 Using the high-throughput technology to scan hundards of thousands to million of SNPs simultaneously across the genome. 
 
@@ -25,6 +43,8 @@ Results is visualised in Manhattan Plot, where significant SNPs appear as high p
 
 # Objective of our study:
 To pinpoint genetic variation linked to complex disease and trait (height).
+The objective of our study is to develop a comprehensive bioinformatic pipeline that utilise short-reads (Illumina) sequencing data to assemble and analysing dog geneome data. 
+look for SNPs.
 
 
 
@@ -78,12 +98,25 @@ conda env create -f rotation3.yml
 
 
 Modules 
+```
 - module load fastp-uoneasy/0.23.4-GCC-12.3.0
 - module load samtools-uoneasy/1.18-GCC-12.3.0
 - module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
 - module load picard-uoneasy/3.0.0-Java-17
 - module load bcftools-uoneasy/1.18-GCC-13.2.0
 - module load vcftools-uoneasy/0.1.16-GCC-12.3.0
+```
+
+R-Studio 
+```
+install.packages("qqman")
+install.packages("tidyverse")
+```
+```
+library(qqman)
+library(tidyverse)
+```
+
 
 Further analysis tools
 | Tools | Versions | Link |
