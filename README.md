@@ -1,6 +1,25 @@
 LIFE4136 Rotation 3 Group 4
 
 Project Overiew
+[Tool installation](#tool-installation)
+
+
+# Files and data reuired:
+- Short Reads: Illumia Data
+  Paired end data
+  *_1.fastq.gz
+  *_2.fastq.gz
+
+115 *_1.fastq.gz
+115 *_2.fastq.gz
+
+
+
+
+
+
+
+
 
 Introdution 
 
@@ -12,7 +31,7 @@ The following table list these tools along with their versions and links to thei
 
 
 
-Tool installation
+## Tool installation
 | Tool Name  |  Version | Link  |
 |---|---|---|
 | MultiQC | 1.24 | [MultiQC](https://github.com/MultiQC/MultiQC) |
@@ -74,11 +93,6 @@ Further analysis tools
 
 Reference 
 you can download the reference file [here](https://www.ensembl.org/Canis_lupus_familiaris/Info/Index). 
-
-
-
-
-
 
 
 
