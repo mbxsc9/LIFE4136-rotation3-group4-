@@ -12,6 +12,10 @@
 #SBATCH --mail-type=ALL
 #SBATCH --array=0-114   # Adjust based on number of lines in doggies_names.txt; first sample is "0"!
 
+# load Conda Environment
+source $HOME/.bash_profile
+conda activate rotation3 
+
 # Load software
 module load samtools-uoneasy/1.18-GCC-12.3.0
 
@@ -35,3 +39,5 @@ samtools view -b -q 30 -F 4 -F 2304 $BAM > $OUT/${SAMPLE}_filtered.bam
 #-> sum of secondary and supplementary = 2304 
 #-q 30 = keep reads with quality above 30 (removes low-confidence alignments)
 #-b = BAM output 
+
+conda deactivate
