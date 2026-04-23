@@ -24,6 +24,39 @@ Tool installation
 | VCFtools | 0.1.16 | [VCFtools](https://github.com/vcftools/vcftools) |
 | PLINK | 1.90 | [PLINK](https://github.com/chrchang/plink-ng) |
 
+# 1. Configure channels (only needed once)
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+Tools installation
+Need to create a new conda environment and activate using the following command
+```
+conda create python=3.8 -n rotation3
+conda activate rotation3
+```
+Install required tools using commands
+```
+conda install bioconda::multiqc
+conda install bioconda::fastp
+conda install bioconda::samtools
+conda install bioconda::bwa
+conda install bioconda::picard
+conda install bioconda::bcftools
+conda install bioconda::vcftools
+conda install bioconda::plink
+```
+```
+conda deactivate
+```
+```
+conda env list
+```
+create a yml file share conda environment
+```
+conda env create -f rotation3.yml
+```
+
 
 Modules 
 - module load fastp-uoneasy/0.23.4-GCC-12.3.0
@@ -43,6 +76,13 @@ Reference
 you can download the reference file [here](https://www.ensembl.org/Canis_lupus_familiaris/Info/Index). 
 
 
+
+
+
+
+
+
+
 Data Overiew:
 Data given by the teacher
 Dogs genomic data
@@ -56,3 +96,9 @@ Requirement.txt
 Project Overview
 
 Backgrow
+
+install plink 2 if it does n't won
+```
+conda install bioconda::plink2
+```
+
