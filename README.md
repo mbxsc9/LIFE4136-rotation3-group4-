@@ -192,22 +192,22 @@ This respository provides a comprehensice suite of scripts designed for GWAS fro
 This pipeline includes multiple steps: Data preparation and quality control.
 
 1. Quality Control
-Script: ```1.0 FASTQC.sh```
-Objective: fastqc generates a comprehensive HTML report summarising raw sequence data quality, GC content, adapter contamination and plots for per-base quality.
-Input: ```*_1.fastq.gz```, ```*_2.fastq.gz``` (Within the shared directory)
-Output: ```.html``` and ```.zip``` files.
+- Script: ```1.0 FASTQC.sh```
+- Objective: fastqc generates a comprehensive HTML report summarising raw sequence data    quality, GC content, adapter contamination and plots for per-base quality.
+- Input: ```*_1.fastq.gz```, ```*_2.fastq.gz``` (Within the shared directory)
+- Output: ```.html``` and ```.zip``` files.
 
 3. Trimming using fastp
-Script: ```2.0 Fastq_trimmed.sh```
-Objective: fastp automatically detects adapter sequence from paired-end Illumina data and removes it. Also, genetrates a HTML report showing raw sequence data quality before and after trimming. 
-Input: ```*_1.fastq.gz```, ```*_2.fastq.gz```
-Output: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz``` and ```.html``` report.
+- Script: ```2.0 Fastq_trimmed.sh```
+- Objective: fastp automatically detects adapter sequence from paired-end Illumina data    and removes it. Also, genetrates a HTML report showing raw sequence data quality         before and after trimming. 
+- Input: ```*_1.fastq.gz```, ```*_2.fastq.gz```
+- Output: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz``` and ```.html``` report.
 
 3. MultiQC for the reads quality after trimming
-Script: ```2.1 multi_qc.sh```
-Objective: MultiQC tool create a single report visualsing output from multiple tool across many samples, enabling to identify any contaminated reads. 
-Input:```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
-Output: ```.log```, ```.txt``` of heatmap, content_plot and other. ```multiqc_report.html```
+- Script: ```2.1 multi_qc.sh```
+- Objective: MultiQC tool create a single report visualsing output from multiple tool      across many samples, enabling to identify any contaminated reads. 
+- Input:```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
+- Output: ```.log```, ```.txt``` of heatmap, content_plot and other.                       ```multiqc_report.html```.
 
 4. 
 Script:
