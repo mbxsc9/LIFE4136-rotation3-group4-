@@ -7,8 +7,8 @@
 #SBATCH --time=2:00:00
 #SBATCH --job-name=multi_qc
 #SBATCH --mail-user=XXX@nottingham.ac.uk
-#SBATCH --output=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.out
-#SBATCH --error=/gpfs01/share/BioinfMSc/life4136_2526/rotation3/group4/Scripts/Logs/slurm-%x-%j.err
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
 #SBATCH --mail-type=ALL
 #SBATCH --array=0-114   # Adjust based on number of lines in root_names.txt; first sample is "0"!
 
