@@ -24,8 +24,9 @@ OUTDIR=XXX/plink_data/gwas_plink
 # create a new output directory
 mkdir -p "$OUTDIR" 
 
-# run GWAS
+# run GWAS using plink
 # linear regression - quantitative trait
+# output .assoc.linear table
 plink --bfile "$INPUT"/doggies_raw \
  --allow-extra-chr --allow-no-sex --pheno "$OUTPUT"/pheno_doggies_height.txt \
  --linear --out "$OUTPUT"/gwas_height_doggies
