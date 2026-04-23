@@ -9,25 +9,28 @@ Project Overiew
 - Paired end data
 - *_1.fastq.gz
 - *_2.fastq.gz
-- Total 115 different unknown dog breeds
-
-
-
-
-
-
-
+- Total 115 different unknown dog breeds.
+- Total 230 fastq.gz files.
+- Phenetopic data were collected from 115 unknown dog breeds.
+- 115 individuals were evaluated using GWAS.
+- 
 
 Introdution 
+A Genome-wide associationstudy (GWAS) is conducted to identify the geneomic regions and nearby candidate genes influencing these traits. 
 
-Objective of our study
+Plink 
+Using the high-throughput technology to scan hundards of thousands to million of SNPs simultaneously across the genome. 
+
+Results is visualised in Manhattan Plot, where significant SNPs appear as high points. (above a signficant thresholds). 
+
+# Objective of our study:
+To pinpoint genetic variation linked to complex disease and trait (height).
+
+
 
 
 Tool versions and links
 The following table list these tools along with their versions and links to their offical documentation or home pages
-
-
-
 ## Tool installation
 | Tool Name  |  Version | Link  |
 |---|---|---|
