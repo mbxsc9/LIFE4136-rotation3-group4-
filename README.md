@@ -210,31 +210,31 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - Output: ```.log```, ```.txt``` of heatmap, content_plot and other.                       ```multiqc_report.html```.
 
 4. Indexing the reference genome using BWA
-- Script: ```3.0 Index_reference_gene```
+- Script: ```3.0 Index_reference_gene.sh```
 - Objective: BWA aligns millions of short sequencing reads to a large FASTA format         reference sequence. This allows downstream analysis. 
 - Input: ```Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa```
 - Output: ```.amb```, ```.ann```, ```.bwt```, ```.pac```, and ```.sa```.
 
 5. Creating bam files using the trimmed.fastq and indexed reference files
-- Script: ```3.1 bam.sh```, ```3.2 bam_filter```.
+- Script: ```3.1 bam.sh```, ```3.2 bam_filter.sh```.
 - Objective: Samtools converts raw sequencing reads (FASTQ) into a reference-aligned,      sorted files for further analysis. Also, used samtools to remove unmmapped and           low-confidence alignments. 
 - Input: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
-- Output: ```${SAMPLE}.sort.bam```, ```.rmd.bam.bai```, ```.rmd.bam.metrics``` and ```.rmd.bam```
+- Output: ```${SAMPLE}.sort.bam```, ```.rmd.bam.bai```, ```.rmd.bam.metrics``` and         ```.rmd.bam```
 - Bam_filter: Input: ```${SAMPLE}.sort.bam``` | Output: ```${SAMPLE}.filtered.bam``` 
 
 6. VCF mpileup and calling
-Script: ```4.0 VCF_mpileup_calling```, ```4.1 Variant_concat.sh```
-Objective: To identify SNPs, indels and variant calls files using bcftools. Also, concat all the vcf into one file.
-Input: ```${SAMPLE}.filtered.bam```
-Output: ```${SAMPLE}.vcf.gz ```
+- Script: ```4.0 VCF_mpileup_calling.sh```, ```4.1 Variant_concat.sh```
+- Objective: To identify SNPs, indels and variant calls files using bcftools. Also,        concat all the vcf into one file.
+- Input: ```${SAMPLE}.filtered.bam```
+- Output: ```${SAMPLE}.vcf.gz ```
 
 7. VCF filter and Imputation
-Script: ```4.1
-Objective:
-Input:
-Output:
+- Script: ```4.2 VCF_filter.sh```, ```4.3 vcf_imputation.sh```
+- Objective: VCF filtering removes low-quality reads with ```.min_depth=1 and              max_depth=50``` or ```.qual=30```. VCF imputation substitutes missing genotypes by       comparing with the reference genome. 
+- VCF Filter | Input: ```dog.vcf.gz``` | Output: ```doggies_filtered.vcf.gz```
+- VCF Imputation | Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar```   | Output: ```doggies_snps_imputed.vcf.gz```
 
-
+8. 
 Script:
 Objective:
 Input:
