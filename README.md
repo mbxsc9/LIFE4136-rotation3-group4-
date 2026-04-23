@@ -223,36 +223,63 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - Bam_filter: Input: ```${SAMPLE}.sort.bam``` | Output: ```${SAMPLE}.filtered.bam``` 
 
 6. VCF mpileup and calling
-- Script: ```4.0 VCF_mpileup_calling.sh```, ```4.1 Variant_concat.sh```
+- Script: ```4.0 VCF_mpileup_calling.sh```, 
 - Objective: To identify SNPs, indels and variant calls files using bcftools. Also,        concat all the vcf into one file.
 - Input: ```${SAMPLE}.filtered.bam```
 - Output: ```${SAMPLE}.vcf.gz ```
+
+- Script: ```4.1 Variant_concat.sh```
+- Input: ```${SAMPLE}.vcf.gz ```
+- Output: ```dog.vcf.gz```
+
 
 7. VCF filter and Imputation
 - Script: ```4.2 VCF_filter.sh```, ```4.3 vcf_imputation.sh```
 - Objective: VCF filtering removes low-quality reads with ```.min_depth=1 and              max_depth=50``` or ```.qual=30```. VCF imputation substitutes missing genotypes by       comparing with the reference genome. 
 - VCF Filter | Input: ```dog.vcf.gz``` | Output: ```doggies_filtered.vcf.gz```
-- VCF Imputation | Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar```   | Output: ```doggies_snps_imputed.vcf.gz```
+- VCF Imputation | Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar```      | Output: ```doggies_snps_imputed.vcf.gz```
 
 8. Clean and index the imputed vcf 
 - Script: ```5.0 Clean_index_vcf```
 - Objective: Using bcftools to only get biallelic SNPs and only keeps SNPs variant.
-- Input: ```doggies_snps_imputed.vcf.gz``` | Output:```doggies_snps.vcf.gz```
+- Input: ```doggies_snps_imputed.vcf.gz``` | Output:```doggies_snps.imputed.vcf.gz```
 - Index Input: ```doggies_snps.vcf.gz``` | Index Output: ```doggies_snps.vcf.gz.csi```.
 
-9. Creating a ```.txt``` file.
-Script: ```5.1 phenotype_select.sh``` 
-Objective: Plink cannot read
-Input:
-Output:
-Script:
-Objective:
-Input:
-Output:
-Script:
-Objective:
-Input:
-Output:
+9. Creating a phenotype ```.txt``` file.
+- Script: ```5.1 phenotype_select.sh``` 
+- Objective: Plink cannot read .csv files. The ```.txt``` need to match the ```.fam```        creted by the plink. In this analysis, sample_accession is used to identify the sample      genome. 
+- Input: ```mergeddata.csv```
+- Output: ```doggies_height.txt```
+
+10. Using plink for filtering low quality SNPs.
+
+- Script: ```6.0 QC_genotype.sh```
+- Input: ```doggies_snps.imputed.vcf.gz```
+- Output: ```doggies_missing``` and doggies_raw ```.bed```, ```.bim```, ```.fam```.
+
+- Script: ```6.1 qc_missingness.sh ```
+- Input:```doggies_raw``` | ```.bed```, ```.bim```, ```.fam```.
+- Output: ```doggies_qc```
+
+11. GWAS PLINK
+- Scripts: ```7.0 gwas_plink```
+- Input: ```doggies_raw``` and ```pheno_doggies_height.txt```
+- Output: ```gwas_height_doggies.assoc.linear```, ```.nosex```, ```.log```
+
+12. Pruning
+- Scripts: ```8.0 pruning.sh```
+- Input: ```doggies_raw```
+- Output: prune ```.prune.in```, ```.log```, ```.prune.out```, ```.nosex```
+
+- Pca20
+- Input: prune ```.prune.in```, ```.log```, ```.prune.out```, ```.nosex```
+- Output: pca20 ```..eigenval```, ```.eigenvec```, ```.log```
+
+13. GWAS_PCA
+- Scripts:
+- Input: ```pheno_doggies_height.txt ```, ```pca20.eigenvec```, ```doggies_qc``` |            ```doggies_raw```
+- Output: ```gwas_doggies_height_pca3.assoc.linear```, ```.nosex```, ```.log```
+
 
 
 
