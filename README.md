@@ -25,6 +25,22 @@ Tool installation
 | PLINK | 1.90 | [PLINK](https://github.com/chrchang/plink-ng) |
 
 
+Modules 
+- module load fastp-uoneasy/0.23.4-GCC-12.3.0
+- module load samtools-uoneasy/1.18-GCC-12.3.0
+- module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
+- module load picard-uoneasy/3.0.0-Java-17
+- module load bcftools-uoneasy/1.18-GCC-13.2.0
+- module load vcftools-uoneasy/0.1.16-GCC-12.3.0
+
+Further analysis tools
+| Tools | Versions | Link |
+|---|---|---|
+| qqman | 0.1.9 | [qqman](https://github.com/stephenturner/qqman) |
+| tidyverse | 2.0.0 | [tidyverse](https://github.com/tidyverse) |
+
+Reference 
+you can download the reference file [here](https://www.ensembl.org/Canis_lupus_familiaris/Info/Index). 
 
 
 Data Overiew:
