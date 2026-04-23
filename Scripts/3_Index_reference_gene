@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --partition=defq
+#SBATCH --job-name=indexgenomebam
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --mem=50g
+#SBATCH --time=4:00:00
+#SBATCH --mail-user=XXX@nottingham.ac.uk
+#SBATCH --output=XXX/slurm-%x-%j.out
+#SBATCH --error=XXX/slurm-%x-%j.err
+#SBATCH --mail-type=ALL
+
+# Load software
+module load samtools-uoneasy/1.18-GCC-12.3.0
+module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
+
+# Set the working directory 
+cd ../../reference_gene
+
+# Index the reference gene using bwa
+bwa index ../../reference_gene/Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa
+
+
