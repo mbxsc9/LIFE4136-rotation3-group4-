@@ -40,8 +40,8 @@ mapfile -t ROOTS < ../doggies_names.txt
 SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 # Set file paths
 # Fastp trimmed reads
-FILE1="$INFILES/${SAMPLE}_1.fastq.gz"
-FILE2="$INFILES/${SAMPLE}_2.fastq.gz"
+FILE1="$INFILES/${SAMPLE}_R1.trimmed.fq.gz"
+FILE2="$INFILES/${SAMPLE}_R2.trimmed.fq.gz"
 OUTFILE="$OUTDIR/${SAMPLE}.sort.bam"
 
 # Align reads using combination of bwa mem and samtools
