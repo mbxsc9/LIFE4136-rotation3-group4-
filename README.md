@@ -193,38 +193,38 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 1. Quality Control
 - Script: ```1.0 FASTQC.sh```
-- Objective: fastqc generates a comprehensive HTML report summarising raw sequence data    quality, GC content, adapter contamination and plots for per-base quality.
+- Objective: fastqc generates a comprehensive HTML report summarising raw sequence data quality, GC content, adapter contamination and plots for per-base quality.
 - Input: ```*_1.fastq.gz```, ```*_2.fastq.gz``` (Within the shared directory)
 - Output: ```.html``` and ```.zip``` files.
 
 3. Trimming using fastp
 - Script: ```2.0 Fastq_trimmed.sh```
-- Objective: fastp automatically detects adapter sequence from paired-end Illumina data    and removes it. Also, genetrates a HTML report showing raw sequence data quality         before and after trimming. 
+- Objective: fastp automatically detects adapter sequence from paired-end Illumina data and removes it. Also, genetrates a HTML report showing raw sequence data quality         before and after trimming. 
 - Input: ```*_1.fastq.gz```, ```*_2.fastq.gz```
 - Output: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz``` and ```.html``` report.
 
 3. MultiQC for the reads quality after trimming
 - Script: ```2.1 multi_qc.sh```
-- Objective: MultiQC tool create a single report visualsing output from multiple tool      across many samples, enabling to identify any contaminated reads. 
+- Objective: MultiQC tool create a single report visualsing output from multiple tool across many samples, enabling to identify any contaminated reads. 
 - Input:```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
-- Output: ```.log```, ```.txt``` of heatmap, content_plot and other.                       ```multiqc_report.html```.
+- Output: ```.log```, ```.txt``` of heatmap, content_plot and other. ```multiqc_report.html```.
 
 4. Indexing the reference genome using BWA
 - Script: ```3.0 Index_reference_gene.sh```
-- Objective: BWA aligns millions of short sequencing reads to a large FASTA format         reference sequence. This allows downstream analysis. 
+- Objective: BWA aligns millions of short sequencing reads to a large FASTA format reference sequence. This allows downstream analysis. 
 - Input: ```Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa```
 - Output: ```.amb```, ```.ann```, ```.bwt```, ```.pac```, and ```.sa```.
 
 5. Creating bam files using the trimmed.fastq and indexed reference files
 - Script: ```3.1 bam.sh```, ```3.2 bam_filter.sh```.
-- Objective: Samtools converts raw sequencing reads (FASTQ) into a reference-aligned,      sorted files for further analysis. Also, used samtools to remove unmmapped and           low-confidence alignments. 
+- Objective: Samtools converts raw sequencing reads (FASTQ) into a reference-aligned, sorted files for further analysis. Also, used samtools to remove unmmapped and low-confidence alignments. 
 - Input: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
-- Output: ```${SAMPLE}.sort.bam```, ```.rmd.bam.bai```, ```.rmd.bam.metrics``` and         ```.rmd.bam```
+- Output: ```${SAMPLE}.sort.bam```, ```.rmd.bam.bai```, ```.rmd.bam.metrics``` and ```.rmd.bam```
 - Bam_filter: Input: ```${SAMPLE}.sort.bam``` | Output: ```${SAMPLE}.filtered.bam``` 
 
 6. VCF mpileup and calling
 - Script: ```4.0 VCF_mpileup_calling.sh```, 
-- Objective: To identify SNPs, indels and variant calls files using bcftools. Also,        concat all the vcf into one file.
+- Objective: To identify SNPs, indels and variant calls files using bcftools. Also, concat all the vcf into one file.
 - Input: ```${SAMPLE}.filtered.bam```
 - Output: ```${SAMPLE}.vcf.gz ```
 
@@ -235,9 +235,9 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 7. VCF filter and Imputation
 - Script: ```4.2 VCF_filter.sh```, ```4.3 vcf_imputation.sh```
-- Objective: VCF filtering removes low-quality reads with ```.min_depth=1 and              max_depth=50``` or ```.qual=30```. VCF imputation substitutes missing genotypes by       comparing with the reference genome. 
+- Objective: VCF filtering removes low-quality reads with ```.min_depth=1 and max_depth=50``` or ```.qual=30```. VCF imputation substitutes missing genotypes by comparing with the reference genome. 
 - VCF Filter | Input: ```dog.vcf.gz``` | Output: ```doggies_filtered.vcf.gz```
-- VCF Imputation | Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar```      | Output: ```doggies_snps_imputed.vcf.gz```
+- VCF Imputation | Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar``` | Output: ```doggies_snps_imputed.vcf.gz```
 
 8. Clean and index the imputed vcf 
 - Script: ```5.0 Clean_index_vcf```
@@ -247,7 +247,7 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 9. Creating a phenotype ```.txt``` file.
 - Script: ```5.1 phenotype_select.sh``` 
-- Objective: Plink cannot read .csv files. The ```.txt``` need to match the ```.fam```        creted by the plink. In this analysis, sample_accession is used to identify the sample      genome. 
+- Objective: Plink cannot read .csv files. The ```.txt``` need to match the ```.fam``` created by the plink. In this analysis, sample_accession is used to identify the sample genome. 
 - Input: ```mergeddata.csv```
 - Output: ```doggies_height.txt```
 
@@ -277,7 +277,7 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 13. GWAS_PCA
 - Scripts:
-- Input: ```pheno_doggies_height.txt ```, ```pca20.eigenvec```, ```doggies_qc``` |            ```doggies_raw```
+- Input: ```pheno_doggies_height.txt ```, ```pca20.eigenvec```, ```doggies_qc``` | ```doggies_raw```
 - Output: ```gwas_doggies_height_pca3.assoc.linear```, ```.nosex```, ```.log```
 
 
