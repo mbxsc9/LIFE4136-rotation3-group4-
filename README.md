@@ -36,8 +36,7 @@ Download the reference file
 
 VCF Imputation
 - Download beagle to imputate the vcf [here](https://faculty.washington.edu/browning/beagle/b5_4.html#download). 
-- version ```5.4```
-
+-	Beagle 5.4 program file: version ``` beagle.29Oct24.c8e.jar```
 
 Installation
 
@@ -132,7 +131,16 @@ Statistical packages for visualisation and analysis.
 library(qqman)
 library(tidyverse)
 ```
+## Requirement.txt
+- ```bam_list.txt```
+- ```chr.names.txt```
+- ```mergeddata.csv```
+- ```names.txt```
+- ```pheno_doggies_height.txt```
+- ```beagle.29Oct24.c8e.jar```
 
+Merged data with doges phenotypes information:
+- The doges phenotypic infomations is avaiable in this [GITHUB](https://github.com/tmfilho/akcdata/tree/master) link. 
 
 
 
@@ -245,7 +253,7 @@ Conda environment
 
 Module list
 
-Requirement.txt
+
 
 Project Overview
 
