@@ -1,6 +1,6 @@
 ##install.packages("qqman")
-library(qqman)
-library(tidyverse)
+install.packages("qqman")
+install.packages("tidyverse")
 
 library(qqman)
 library(tidyverse)
@@ -30,5 +30,5 @@ dev.off()
 canis_dataset_top_P_value <- data %>% arrange(P)
 head(canis_dataset_top_P_value, 25)
 
-
+# manhattan plot 
 manhattan(merged_data, chr = "CHR", ps = "BP", p = "P")
