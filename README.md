@@ -48,7 +48,11 @@ This is a list of all the tools that will be required for this workflow along wi
 | VCFtools | 0.1.16 | [VCFtools](https://github.com/vcftools/vcftools) |
 | PLINK | 1.90 | [PLINK](https://github.com/chrchang/plink-ng) |
 
-Creating an Environment
+# Cloning Repository
+Clone this github repository in your working directory to use it
+```git clone https://github.com/mbxsc9/LIFE4136-rotation3-group4-.git ```
+
+# Creating an Environment
 
 Need to create a new conda environment using this command, which is required for this project. 
 ```
@@ -79,9 +83,45 @@ create a yml file to a share and export the conda environment
 conda env create -f rotation3.yml
 conda env ecport > rotation3.yml
 ```
-Cloning Repository
-Clone this github repository in your working directory to use it
-```git clone ```
+# Configure channels - only needed once
+```
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+Modules 
+These modules can be loaded if the specific tool is not installed in the conda enviromnet.
+```
+- module load fastp-uoneasy/0.23.4-GCC-12.3.0
+- module load samtools-uoneasy/1.18-GCC-12.3.0
+- module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
+- module load picard-uoneasy/3.0.0-Java-17
+- module load bcftools-uoneasy/1.18-GCC-13.2.0
+- module load vcftools-uoneasy/0.1.16-GCC-12.3.0
+```
+list modules avail
+```
+module avail
+```
+
+
+R-Studio 
+Commands to install the required packages
+```
+install.packages("qqman")
+install.packages("tidyverse")
+```
+Further analysis tools
+| Tools | Versions | Link |
+|---|---|---|
+| qqman | 0.1.9 | [qqman](https://github.com/stephenturner/qqman) |
+| tidyverse | 2.0.0 | [tidyverse](https://github.com/tidyverse) |
+Statistical packages for visualisation and analysis.
+```
+library(qqman)
+library(tidyverse)
+```
+
 
 
 
@@ -159,19 +199,6 @@ This corresponds to the triplet of files that are used by plink.
 
 
 
-Tool versions and links
-The following table list these tools along with their versions and links to their offical documentation or home pages
-## Tool installation
-| Tool Name  |  Version | Link  |
-|---|---|---|
-| MultiQC | 1.24 | [MultiQC](https://github.com/MultiQC/MultiQC) |
-| fastp | 0.23.4 | [fastp](https://github.com/opengene/fastp) |
-| Samtools | 1.18 | [Samtools](https://github.com/samtools/samtools) |
-| BWA | 0.7.17 | [BWAS](https://github.com/lh3/bwa) |
-| Picard | 3.0.0 | [Picard](https:/github.com/broadinstitute/picard)|
-| bcftools | 1.18 | [bcftools](https://github.com/samtools/bcftools) |
-| VCFtools | 0.1.16 | [VCFtools](https://github.com/vcftools/vcftools) |
-| PLINK | 1.90 | [PLINK](https://github.com/chrchang/plink-ng) |
 
 # 1. Configure channels (only needed once)
 conda config --add channels defaults
@@ -181,32 +208,7 @@ conda config --add channels conda-forge
 Tools installation
 
 
-Modules 
-```
-- module load fastp-uoneasy/0.23.4-GCC-12.3.0
-- module load samtools-uoneasy/1.18-GCC-12.3.0
-- module load bwa-uoneasy/0.7.17-GCCcore-12.3.0
-- module load picard-uoneasy/3.0.0-Java-17
-- module load bcftools-uoneasy/1.18-GCC-13.2.0
-- module load vcftools-uoneasy/0.1.16-GCC-12.3.0
-```
 
-R-Studio 
-```
-install.packages("qqman")
-install.packages("tidyverse")
-```
-```
-library(qqman)
-library(tidyverse)
-```
-
-
-Further analysis tools
-| Tools | Versions | Link |
-|---|---|---|
-| qqman | 0.1.9 | [qqman](https://github.com/stephenturner/qqman) |
-| tidyverse | 2.0.0 | [tidyverse](https://github.com/tidyverse) |
 
 Reference 
 
