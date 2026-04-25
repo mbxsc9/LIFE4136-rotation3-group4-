@@ -52,6 +52,7 @@ This is a list of all the tools that will be required for this workflow along wi
 
 # Cloning Repository
 Clone this github repository in your working directory to use this command
+
 ```git clone https://github.com/mbxsc9/LIFE4136-rotation3-group4-.git ```
 
 # Creating an Environment
@@ -92,6 +93,7 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
 Modules 
+
 These modules can be loaded if the specific tool is not installed in the conda enviromnet.
 ```
 - module load fastp-uoneasy/0.23.4-GCC-12.3.0
@@ -101,11 +103,10 @@ These modules can be loaded if the specific tool is not installed in the conda e
 - module load bcftools-uoneasy/1.18-GCC-13.2.0
 - module load vcftools-uoneasy/0.1.16-GCC-12.3.0
 ```
-list modules avail
+list modules availiable in HPC
 ```
 module avail
 ```
-
 
 R-Studio 
 Commands to install the required packages
