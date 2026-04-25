@@ -34,6 +34,11 @@ Download the reference file
 - ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.fna```
 - ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.gff.g```
 
+VCF Imputation
+- Download beagle to imputate the vcf [here](https://faculty.washington.edu/browning/beagle/b5_4.html#download). 
+- version ```5.4```
+
+
 Installation
 
 Tool versions and links
@@ -103,7 +108,8 @@ These modules can be loaded if the specific tool is not installed in the conda e
 - module load bcftools-uoneasy/1.18-GCC-13.2.0
 - module load vcftools-uoneasy/0.1.16-GCC-12.3.0
 ```
-list modules availiable in HPC
+
+list modules avaliable in HPC
 ```
 module avail
 ```
@@ -114,11 +120,13 @@ Commands to install the required packages
 install.packages("qqman")
 install.packages("tidyverse")
 ```
+
 Further analysis tools
 | Tools | Versions | Link |
 |---|---|---|
 | qqman | 0.1.9 | [qqman](https://github.com/stephenturner/qqman) |
 | tidyverse | 2.0.0 | [tidyverse](https://github.com/tidyverse) |
+
 Statistical packages for visualisation and analysis.
 ```
 library(qqman)
@@ -226,9 +234,6 @@ As output, the pipeline produces GWAS summary statistics, manhattan and qqplot f
 
 
 
-vcf_imputation
-using beagle 
-download [here](https://faculty.washington.edu/browning/beagle/b5_4.html#download)
 
 
 
