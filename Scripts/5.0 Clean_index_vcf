@@ -31,8 +31,4 @@ bcftools view -m2 -M2 -v snps "$INPUT"/doggies_snps_imputed.vcf.gz -Oz -o "$OUTD
 # Index the vcf to directly jump to a genomic positions.
 bcftools index "$OUTDIR"/doggies_snps.vcf.gz
 
-# Convert VCF files into a binary format - allows plink to work.
-# plink stores data in 3 coordinated files, a .bed, .bim, and .fam
-plink --vcf "$OUTDIR"/doggies_snps.vcf.gz --double-id --allow-extra-chr --make-bed --out doggies_raw
-
 conda deactivate
