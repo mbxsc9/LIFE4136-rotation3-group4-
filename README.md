@@ -29,8 +29,10 @@ Total data
 - Total ```230 fastq.gz``` files.
 - 115 individuals were evaluated using GWAS.
 
-Reference files
-- ```.fasta``` for mapping. you can download the reference file [here](https://www.ensembl.org/Canis_lupus_familiaris/Info/Index). 
+Download the reference file
+- ```.fasta```, ```gff``` for mapping and annotations. you can download the reference file in the website [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_011100685.1/).
+- ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.fna```
+- ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.gff.g```
 
 Installation
 
@@ -49,7 +51,7 @@ This is a list of all the tools that will be required for this workflow along wi
 | PLINK | 1.90 | [PLINK](https://github.com/chrchang/plink-ng) |
 
 # Cloning Repository
-Clone this github repository in your working directory to use it
+Clone this github repository in your working directory to use this command
 ```git clone https://github.com/mbxsc9/LIFE4136-rotation3-group4-.git ```
 
 # Creating an Environment
@@ -121,6 +123,9 @@ Statistical packages for visualisation and analysis.
 library(qqman)
 library(tidyverse)
 ```
+
+
+
 
 
 
