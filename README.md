@@ -289,6 +289,9 @@ mapfile -t ROOTS < ../doggies_names.txt
 # Get the current sample name based on SLURM_ARRAY_TASK_ID
 SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 ```
+7. For the PCA GWAS script ```9.0 GWAS_PCA.sh```, we used the ```doggies_raw``` files insteads of the ```doggies_qc``` files beacause the QC step removed important SNPs and individuals that were needed for the analysis.
+- Use ```doggies_qc``` for better analysis.
+
 ## Authors
 
 - Smriti Chaudhary - mbxsc9@nottingham.ac.uk
