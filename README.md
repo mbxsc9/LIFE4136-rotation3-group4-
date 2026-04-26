@@ -60,8 +60,9 @@ This list outlines the necessary tools and their versions for the workflow, alon
 
 ## Cloning Repository
 Clone this github repository in your working directory using this command
-
-```git clone https://github.com/mbxsc9/LIFE4136-rotation3-group4-.git ```
+```
+git clone https://github.com/mbxsc9/LIFE4136-rotation3-group4-.git
+```
 
 ## Creating Conda Environment
 To create a new conda environment necessary for the project, use this command.
