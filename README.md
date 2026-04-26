@@ -291,8 +291,8 @@ SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 ```
 ## Authors
 
-Smriti Chaudhary - mbxsc9@nottingham.ac.uk
-Jiaan Randhawa-Heer - mbxjr7@nottingham.ac.uk
-Layla Meghjee - mbxlm9@nottingham.ac.uk
+- Smriti Chaudhary - mbxsc9@nottingham.ac.uk
+- Jiaan Randhawa-Heer - mbxjr7@nottingham.ac.uk
+- Layla Meghjee - mbxlm9@nottingham.ac.uk
 
 
