@@ -1,5 +1,5 @@
 # LIFE4136 Rotation 3 Group 4
-This is a repository that includes the workflow used for Genome-wide association studies analysis as a part of the UoN MSc Bioinformatics - LIFE4136 module.
+- This is a repository that includes the workflow used for Genome-wide association studies analysis as a part of the UoN MSc Bioinformatics - LIFE4136 module.
 
 # Contents
 - [Introduction](#introduction)
@@ -16,10 +16,10 @@ This is a repository that includes the workflow used for Genome-wide association
 - [Authors](#authors)
 
 ## Introduction
-Genome-wide association studies (GWAS) are observational studies that analyze entire genomes within large populations to identify genetic variations, particularly single nucleotide polymorphisms (SNPs), associated with specific traits or diseases. GWAS compare DNA from individuals with certain traits to a reference genome, revealing genetic risk factors that inform biological insights and precision therapy. The high-throughput technology Plink is used for scanning numerous SNPs, with significant SNPs appearing as peaks in a Manhattan plot above a critical threshold.
+- Genome-wide association studies (GWAS) are observational studies that analyze entire genomes within large populations to identify genetic variations, particularly single nucleotide polymorphisms (SNPs), associated with specific traits or diseases. GWAS compare DNA from individuals with certain traits to a reference genome, revealing genetic risk factors that inform biological insights and precision therapy. The high-throughput technology Plink is used for scanning numerous SNPs, with significant SNPs appearing as peaks in a Manhattan plot above a critical threshold.
 
 ##  Objective of our study:
-This pipeline will allow running Genome-Wide Association analyses on Genomics Data (Canis_lupus_familiaris). This workflow can identify and pinpoint genetic variation linked with the height trait. The objective of our study is to develop a comprehensive bioinformatic pipeline that utilises short-read (Illumina) sequencing data to assemble and analyse dog genome data and identify genomic regions that influence these traits and looks for SNPs. We have developed an automated GWAS pipeline by combining multiple analysis tools, including bcftools, vcftools, Plink, samtools and further analysis using the R packages to create a Manhattan plot. The pipeline is flexible and has a reproducible workflow. 
+- This pipeline will allow running Genome-Wide Association analyses on Genomics Data (Canis_lupus_familiaris). This workflow can identify and pinpoint genetic variation linked with the height trait. The objective of our study is to develop a comprehensive bioinformatic pipeline that utilises short-read (Illumina) sequencing data to assemble and analyse dog genome data and identify genomic regions that influence these traits and looks for SNPs. We have developed an automated GWAS pipeline by combining multiple analysis tools, including bcftools, vcftools, Plink, samtools and further analysis using the R packages to create a Manhattan plot. The pipeline is flexible and has a reproducible workflow. 
 
 
 ## Prerequisites and Dependencies
