@@ -209,13 +209,13 @@ This pipeline includes multiple steps: Data preparation and quality control.
 - Index Input: ```doggies_snps.vcf.gz``` | Index Output: ```doggies_snps.vcf.gz.csi```.
 
 9. Creating a phenotype ```.txt``` file.
-Plink cannot read ```.csv``` files. The ```.txt``` need to match with the ```.fam``` created by the plink. In this analysis, sample_accession is used to identify the sample genome.
+- Plink cannot read ```.csv``` files. The ```.txt``` need to match with the ```.fam``` created by the plink. In this analysis, sample_accession is used to identify the sample genome.
 - Script: ```5.1 phenotype_select.sh``` 
 - Input: ```mergeddata.csv```
-- Output: ```doggies_height.txt```
+- Outp-ut: ```doggies_height.txt```
 
 10. Using plink for filtering low quality SNPs.
-QC filtering to remove low-quality SNPs and individuals, which can distort the final analysis. This outputs missing genotype datasets with poorly genotyped SNPs and rare variants.
+- QC filtering to remove low-quality SNPs and individuals, which can distort the final analysis. This outputs missing genotype datasets with poorly genotyped SNPs and rare variants.
 - Script: ```6.0 QC_genotype.sh```
 - Input: ```doggies_snps.imputed.vcf.gz```
 - Output: ```doggies_missing``` and doggies_raw ```.bed```, ```.bim```, ```.fam```.
@@ -224,13 +224,13 @@ QC filtering to remove low-quality SNPs and individuals, which can distort the f
 - Output: ```doggies_qc```
 
 11. GWAS PLINK
-Using Plink to run a linear regression results in a quantitative height trait.
+- Using Plink to run a linear regression results in a quantitative height trait.
 - Scripts: ```7.0 gwas_plink```
 - Input: ```doggies_raw``` and ```pheno_doggies_height.txt```
 - Output: ```gwas_height_doggies.assoc.linear```, ```.nosex```, ```.log```
 
 12. Pruning
-We first LD-prune SNPs and do PCA on the independent markers to capture ancestry variation and remove false positives. Then, PCA summarises gnome-wide genetic variation into principal components (PCs).
+- We first LD-prune SNPs and do PCA on the independent markers to capture ancestry variation and remove false positives. Then, PCA summarises gnome-wide genetic variation into principal components (PCs).
 - Scripts: ```8.0 pruning.sh```
 - Input: ```doggies_raw```
 - Output: prune ```.prune.in```, ```.log```, ```.prune.out```, ```.nosex```
@@ -239,13 +239,13 @@ We first LD-prune SNPs and do PCA on the independent markers to capture ancestry
 - Output: pca20 ```..eigenval```, ```.eigenvec```, ```.log```
 
 13. GWAS_PCA
-Genome-wide association studies (GWAS) reruns utilise a linear model that incorporates principal components (PCs) as covariates.
+- Genome-wide association studies (GWAS) reruns utilise a linear model that incorporates principal components (PCs) as covariates.
 - Scripts: ```9.0 GWAS_PCA.sh```
 - Input: ```pheno_doggies_height.txt ```, ```pca20.eigenvec```, ```doggies_qc``` | ```doggies_raw```
 - Output: ```gwas_doggies_height_pca3.assoc.linear```, ```.nosex```, ```.log```
 
 GWAS using R-studio:
-A Manhattan map highlighting certain SNP peaks on various chromosomes is produced using R-Studio. 
+- A Manhattan map highlighting certain SNP peaks on various chromosomes is produced using R-Studio. 
 - Script: 9.2 manhattanplots.R
 - Input: ```gwas_doggies_height_pca3.assoc.linear```
 - Output ```manhattan plot```
