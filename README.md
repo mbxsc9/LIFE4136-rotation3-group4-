@@ -246,7 +246,7 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 GWAS using R-studio:
 - A Manhattan map highlighting certain SNP peaks on various chromosomes is produced using R-Studio. 
-- Script: 9.2 manhattanplots.R
+- Script: ```9.2 manhattanplots.R```
 - Input: ```gwas_doggies_height_pca3.assoc.linear```
 - Output ```manhattan plot```
 
@@ -292,7 +292,8 @@ SAMPLE=${ROOTS[$SLURM_ARRAY_TASK_ID]}
 ## Authors
 
 - Smriti Chaudhary - mbxsc9@nottingham.ac.uk
-- Jiaan Randhawa-Heer - mbxjr7@nottingham.ac.uk
 - Layla Meghjee - mbxlm9@nottingham.ac.uk
+- Jiaan Randhawa-Heer - mbxjr7@nottingham.ac.uk
+
 
 
