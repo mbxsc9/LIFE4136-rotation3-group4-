@@ -103,7 +103,7 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
 Modules 
-These modules are loadable when the specific tool is absent in the conda environment.
+- These modules are loadable when the specific tool is absent in the conda environment.
 ```
 - module load fastp-uoneasy/0.23.4-GCC-12.3.0
 - module load samtools-uoneasy/1.18-GCC-12.3.0
@@ -152,35 +152,30 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 1. Quality Control
 - To check the quality of the dogs' reads and generate a comprehensive HTML report summarising raw sequence data quality, GC content, adapter contamination and plots for per-base quality.
-
 - Script: ```1.0 FASTQC.sh```
 - Input: ```*_1.fastq.gz```, ```*_2.fastq.gz``` (Within the shared directory)
 - Output: ```*.html``` and ```*.zip``` files.
 
 2. Trimming
 - The reads were trimmed using fastp, which automatically detects adapter sequences from paired-end Illumina data and removes them. Also, it generates an HTML report showing raw sequence data quality before and after trimming.
-
 - Script: ```2.0 Fastq_trimmed.sh```
 - Input: ```*_1.fastq.gz```, ```*_2.fastq.gz```
 - Output: ```*_R1.trimmed.fq.gz```, ```*_R2.trimmed.fq.gz``` and ```*.html``` report.
 
 3. MultiQC
 - The MultiQC tool is used to create a single report visualising the quality of the reads across multiple samples, enabling the identification of any contaminated reads.
-
 - Script: ```2.1 multi_qc.sh```
 - Input:```*_R1.trimmed.fq.gz```, ```*_R2.trimmed.fq.gz```
 - Output: ```*.log```, ```*.txt``` of heatmap, content_plot and other. ```multiqc_report.html```.
 
 4. Indexing the reference genome using BWA
 - BWA aligns millions of short sequencing reads to a large FASTA format reference sequence. This allows downstream analysis. 
-
 - Script: ```3.0 Index_reference_gene.sh```
 - Input: ```Canis_lupus_familiaris.ROS_Cfam_1.0.dna.toplevel.fa```
 - Output: ```*.amb```, ```*.ann```, ```*.bwt```, ```*.pac```, and ```*.sa```.
 
 5. Creating bam files using the trimmed.fastq and indexed reference files.
 - Samtools converts raw sequencing-trimmed reads (FASTQ) into reference-aligned, sorted files for further analysis. Also, used samtools to remove unmapped and low-confidence alignments.
-
 - Script: ```3.1 bam.sh```
 - Input: ```*_R1.trimmed.fq.gz```, ```*_R2.trimmed.fq.gz```
 - Output: ```*.bam```, ```*.sorted.bam```, ```*.sorted.bam.bai```
@@ -190,7 +185,6 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 6. VCF mpileup and calling
 - To identify SNPs, indels and variant calls files using bcftools. Also, concatenate all the VCFs into one file.
-
 - Script: ```4.0 VCF_mpileup_calling.sh```, 
 - Input: ```${SAMPLE}.filtered.bam```
 - Output: ```${SAMPLE}.vcf.gz ```
@@ -201,7 +195,6 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 7. VCF filter and Imputation
 - VCF filtering removes low-quality reads within ```.min_depth=1 and max_depth=50``` and ```.qual=30```. VCF imputation substitutes missing genotypes by comparing with the reference genome. 
-
 - Script: ```4.2 VCF_filter.sh```
 - Input: ```dog.vcf.gz```
 - Output: ```doggies_filtered.vcf.gz```
@@ -211,21 +204,18 @@ This pipeline includes multiple steps: Data preparation and quality control.
 
 8. Clean and index the imputed vcf
 - Using bcftools to only get biallelic SNPs and only keeps SNPs that are variants.
-
 - Script: ```5.0 Clean_index_vcf```
 - Input: ```doggies_snps_imputed.vcf.gz``` | Output:```doggies_snps.imputed.vcf.gz```
 - Index Input: ```doggies_snps.vcf.gz``` | Index Output: ```doggies_snps.vcf.gz.csi```.
 
 9. Creating a phenotype ```.txt``` file.
 Plink cannot read ```.csv``` files. The ```.txt``` need to match with the ```.fam``` created by the plink. In this analysis, sample_accession is used to identify the sample genome.
-
 - Script: ```5.1 phenotype_select.sh``` 
 - Input: ```mergeddata.csv```
 - Output: ```doggies_height.txt```
 
 10. Using plink for filtering low quality SNPs.
 QC filtering to remove low-quality SNPs and individuals, which can distort the final analysis. This outputs missing genotype datasets with poorly genotyped SNPs and rare variants.
-
 - Script: ```6.0 QC_genotype.sh```
 - Input: ```doggies_snps.imputed.vcf.gz```
 - Output: ```doggies_missing``` and doggies_raw ```.bed```, ```.bim```, ```.fam```.
@@ -235,32 +225,27 @@ QC filtering to remove low-quality SNPs and individuals, which can distort the f
 
 11. GWAS PLINK
 Using Plink to run a linear regression results in a quantitative height trait.
-
 - Scripts: ```7.0 gwas_plink```
 - Input: ```doggies_raw``` and ```pheno_doggies_height.txt```
 - Output: ```gwas_height_doggies.assoc.linear```, ```.nosex```, ```.log```
 
 12. Pruning
 We first LD-prune SNPs and do PCA on the independent markers to capture ancestry variation and remove false positives. Then, PCA summarises gnome-wide genetic variation into principal components (PCs).
-
 - Scripts: ```8.0 pruning.sh```
 - Input: ```doggies_raw```
 - Output: prune ```.prune.in```, ```.log```, ```.prune.out```, ```.nosex```
-
 - Pca20
 - Input: prune ```.prune.in```, ```.prune.out```, ```doggies_raw```
 - Output: pca20 ```..eigenval```, ```.eigenvec```, ```.log```
 
 13. GWAS_PCA
 Genome-wide association studies (GWAS) reruns utilise a linear model that incorporates principal components (PCs) as covariates.
-
 - Scripts: ```9.0 GWAS_PCA.sh```
 - Input: ```pheno_doggies_height.txt ```, ```pca20.eigenvec```, ```doggies_qc``` | ```doggies_raw```
 - Output: ```gwas_doggies_height_pca3.assoc.linear```, ```.nosex```, ```.log```
 
 GWAS using R-studio:
 A Manhattan map highlighting certain SNP peaks on various chromosomes is produced using R-Studio. 
-
 - Script: 9.2 manhattanplots.R
 - Input: ```gwas_doggies_height_pca3.assoc.linear```
 - Output ```manhattan plot```
