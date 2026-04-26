@@ -180,8 +180,7 @@ Samtools converts raw sequencing-trimmed reads (FASTQ) into reference-aligned, s
 
 - Script: ```3.1 bam.sh```
 - Input: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
-- Output: ```*.bam```, ```*.sorted.bam```, ```.sorted.bam.bai``` 
-
+- Output: ```*.bam```, ```*.sorted.bam```, ```.sorted.bam.bai```
 - Script: ```3.2 bam_filter.sh```
 - Input: ```${SAMPLE}.sort.bam```
 - Output: ```${SAMPLE}.filtered.bam``` 
@@ -192,7 +191,6 @@ To identify SNPs, indels and variant calls files using bcftools. Also, concatena
 - Script: ```4.0 VCF_mpileup_calling.sh```, 
 - Input: ```${SAMPLE}.filtered.bam```
 - Output: ```${SAMPLE}.vcf.gz ```
-
 - Script: ```4.1 Variant_concat.sh```
 - Input: ```${SAMPLE}.vcf.gz ```
 - Output: ```dog.vcf.gz```
@@ -204,7 +202,6 @@ VCF filtering removes low-quality reads within ```.min_depth=1 and max_depth=50`
 - Script: ```4.2 VCF_filter.sh```
 - Input: ```dog.vcf.gz```
 - Output: ```doggies_filtered.vcf.gz```
-
 - Script: ```4.3 vcf_imputation.sh```
 - Input: ```doggies_filtered.vcf.gz``` and ```beagle.29Oct24.c8e.jar```
 - Output: ```doggies_snps_imputed.vcf.gz```
