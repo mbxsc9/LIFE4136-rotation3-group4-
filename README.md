@@ -1,6 +1,7 @@
-LIFE4136 Rotation 3 Group 4
+# LIFE4136 Rotation 3 Group 4
+This is a repository that includes the workflow used for Genome-wide association studies analysis as a part of the UoN MSc Bioinformatics - LIFE4136 module.
 
-# Project Overiew
+# Contents
 - [Introduction](#introduction)
 - [Objective of our study](#objective-of-our-study)
 - [Prerequisites and Dependencies](#prerequisites-and-dependencies)
