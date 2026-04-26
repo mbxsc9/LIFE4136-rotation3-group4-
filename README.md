@@ -1,10 +1,12 @@
-LIFE4136 Rotatio
+LIFE4136 Rotation 3 Group 4
 
 Project Overiew
+[Introduction](#introduction)
+[Objective of our study](#objective-of-our-study)
 [Tool installation](#tool-installation)
 
 
-# Introduction
+## Introduction
 This pipeline will allow to run Genome Wide Association analyses on Genomics Data (Canis_lupus_familiaris). This workflow can identify variants that are enriched in specific phenotype (height). We have developed an automated GWAS pipeline by combining multiple analysis tools including: bcftools, vcftools, Plink, samtools and further analysis using the R packages (manhattan plot). The pipline is flexible and have a reproducible workflow. 
 
 Genome-wide association studies (GWAS) are observation studies that analysis the entire genome of large population to identify genetic variants, typically single nucleotide polymorphism (SNPs), assocuated with specific traits or disease. By comparing DNA from individuals with a disease (cases) to those without controls (Refernce genome), GWAS identify genetic risk factors, providing insights into disease biology and informing precision medicine.
@@ -13,7 +15,7 @@ Using plink the high-throughput technology to scan hundards of thousands to mill
 
 Results is visualised in Manhattan Plot, where significant SNPs appear as high points. (above a signficant thresholds). 
 
-#  Objective of our study:
+##  Objective of our study:
 To pinpoint genetic variation linked to complex disease and trait (height).
 The objective of our study is to develop a comprehensive bioinformatic pipeline that utilise short-reads (Illumina) sequencing data to assemble and analysing dog geneome data and identify he geneomic regions and nearby candidate genes influencing these traits, look for SNPs.
 
@@ -175,6 +177,7 @@ BWA aligns millions of short sequencing reads to a large FASTA format reference 
 
 5. Creating bam files using the trimmed.fastq and indexed reference files.
 Samtools converts raw sequencing trimmed reads (FASTQ) into a reference-aligned, sorted files for further analysis. Also, used samtools to remove unmmapped and low-confidence alignments. 
+
 - Script: ```3.1 bam.sh```
 - Input: ```*_R1.trimmed.fq.gz```, ```_R2.trimmed.fq.gz```
 - Output: ```*.bam```, ```*.sorted.bam```, ```.sorted.bam.bai``` 
