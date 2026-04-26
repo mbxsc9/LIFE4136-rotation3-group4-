@@ -1,9 +1,9 @@
 LIFE4136 Rotation 3 Group 4
 
-Project Overiew
-[Introduction](#introduction)
-[Objective of our study](#objective-of-our-study)
-[Tool installation](#tool-installation)
+# Project Overiew
+- [Introduction](#introduction)
+- [Objective of our study](#objective-of-our-study)
+- [Prerequisites and Dependencies](Prerequisites-and-Dependencies)
 
 
 ## Introduction
