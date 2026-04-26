@@ -3,15 +3,15 @@ LIFE4136 Rotation 3 Group 4
 # Project Overiew
 - [Introduction](#introduction)
 - [Objective of our study](#objective-of-our-study)
-- [Prerequisites and Dependencies](prerequisites-and-dependencies)
-  - [Download the reference file](download-the-reference-file)
-  - [Tools Installation](tools-installation)
-- [Cloning Repository](cloning-repository)
-  - [Creating Conda Environment](creating-conda-environment)
-  - [R-Studio](r-Studio)
-  - [Requirement.txt](requirement.txt)
-- [Workflow Overview](workflow-overview)
-- [Troubleshooting](troubleshooting)
+- [Prerequisites and Dependencies](#prerequisites-and-dependencies)
+  - [Download the reference file](#download-the-reference-file)
+  - [Tools Installation](#tools-installation)
+- [Cloning Repository](#cloning-repository)
+  - [Creating Conda Environment](#creating-conda-environment)
+  - [R-Studio](#r-Studio)
+  - [Requirement.txt](#requirement.txt)
+- [Workflow Overview](#workflow-overview)
+- [Troubleshooting](#troubleshooting)
 
 ## Introduction
 This pipeline will allow to run Genome Wide Association analyses on Genomics Data (Canis_lupus_familiaris). This workflow can identify variants that are enriched in specific phenotype (height). We have developed an automated GWAS pipeline by combining multiple analysis tools including: bcftools, vcftools, Plink, samtools and further analysis using the R packages (manhattan plot). The pipline is flexible and have a reproducible workflow. 
