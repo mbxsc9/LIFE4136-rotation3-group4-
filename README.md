@@ -3,8 +3,15 @@ LIFE4136 Rotation 3 Group 4
 # Project Overiew
 - [Introduction](#introduction)
 - [Objective of our study](#objective-of-our-study)
-- [Prerequisites and Dependencies](Prerequisites-and-Dependencies)
-
+- [Prerequisites and Dependencies](prerequisites-and-dependencies)
+  - [Download the reference file](download-the-reference-file)
+  - [Tools Installation](tools-installation)
+- [Cloning Repository](cloning-repository)
+  - [Creating Conda Environment](creating-conda-environment)
+  - [R-Studio](r-Studio)
+  - [Requirement.txt](requirement.txt)
+- [Workflow Overview](workflow-overview)
+- [Troubleshooting](troubleshooting)
 
 ## Introduction
 This pipeline will allow to run Genome Wide Association analyses on Genomics Data (Canis_lupus_familiaris). This workflow can identify variants that are enriched in specific phenotype (height). We have developed an automated GWAS pipeline by combining multiple analysis tools including: bcftools, vcftools, Plink, samtools and further analysis using the R packages (manhattan plot). The pipline is flexible and have a reproducible workflow. 
@@ -19,7 +26,7 @@ Results is visualised in Manhattan Plot, where significant SNPs appear as high p
 To pinpoint genetic variation linked to complex disease and trait (height).
 The objective of our study is to develop a comprehensive bioinformatic pipeline that utilise short-reads (Illumina) sequencing data to assemble and analysing dog geneome data and identify he geneomic regions and nearby candidate genes influencing these traits, look for SNPs.
 
-# Prerequisites and Dependencies
+## Prerequisites and Dependencies
 Files and data required:
 
 Short Reads: Illumia Data
@@ -40,7 +47,7 @@ VCF Imputation
 - Download beagle to imputate the vcf [here](https://faculty.washington.edu/browning/beagle/b5_4.html#download). 
 -	Beagle 5.4 program file: version ``` beagle.29Oct24.c8e.jar```
 
-Installation
+## Tools Installation
 
 Tool versions and links
 
@@ -56,12 +63,12 @@ This is a list of all the tools that will be required for this workflow along wi
 | VCFtools | 0.1.16 | [VCFtools](https://github.com/vcftools/vcftools) |
 | PLINK | 1.90 | [PLINK](https://github.com/chrchang/plink-ng) |
 
-# Cloning Repository
+## Cloning Repository
 Clone this github repository in your working directory to use this command
 
 ```git clone https://github.com/mbxsc9/LIFE4136-rotation3-group4-.git ```
 
-# Creating an Environment
+## Creating Conda Environment
 
 Need to create a new conda environment using this command, which is required for this project. 
 ```
@@ -115,7 +122,7 @@ list modules avaliable in HPC
 module avail
 ```
 
-R-Studio 
+## R-Studio 
 Commands to install the required packages
 ```
 install.packages("qqman")
@@ -144,7 +151,7 @@ library(tidyverse)
 Merged data with doges phenotypes information:
 - The doges phenotypic infomations is avaiable in this [GITHUB](https://github.com/tmfilho/akcdata/tree/master) link. 
 
-# Workflow Overview
+## Workflow Overview
 This pipeline includes multiple steps: Data preparation and quality control.
 
 1. Quality Control
@@ -261,7 +268,7 @@ A manhatton map highlighting certain SNP peaks on various chromosomes is produce
 - Output ```manhattan plot```
 
   
-# Troubleshooting
+## Troubleshooting
 1. If the pipeline fails, check the following:
 - plink.log for general errors.
 - Common issues:
