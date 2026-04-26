@@ -226,7 +226,6 @@ QC filtering to remove low-quality SNPs and individuals, which can distort the f
 - Script: ```6.0 QC_genotype.sh```
 - Input: ```doggies_snps.imputed.vcf.gz```
 - Output: ```doggies_missing``` and doggies_raw ```.bed```, ```.bim```, ```.fam```.
-
 - Script: ```6.1 qc_missingness.sh ```
 - Input:```doggies_raw``` | ```.bed```, ```.bim```, ```.fam```.
 - Output: ```doggies_qc```
