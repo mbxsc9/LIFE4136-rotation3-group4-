@@ -37,7 +37,7 @@ Total data
 ## Download the reference file
 - ```.fasta```, ```gff``` for mapping and annotations. you can download the reference file in the website [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_011100685.1/).
 - ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.fna```
-- ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.gff.g```
+- ```GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.gff```
 
 VCF Imputation
 - Download beagle to imputate the vcf [here](https://faculty.washington.edu/browning/beagle/b5_4.html#download). 
